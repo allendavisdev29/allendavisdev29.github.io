@@ -315,7 +315,20 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
+            <a href="#registration" class="toc-h1 toc-link" data-title="Registration">Registration</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#register-user" class="toc-h2 toc-link" data-title="Register User">Register User</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-user-token" class="toc-h2 toc-link" data-title="Get User token">Get User token</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#jobs" class="toc-h1 toc-link" data-title="Jobs">Jobs</a>
@@ -359,21 +372,96 @@
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
-<h1 id='authentication'>Authentication</h1>
+<h1 id='registration'>Registration</h1><h2 id='register-user'>Register User</h2>
+<p>This endpoint is to register user.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/registration/"</span>
+METHOD: POST
+</code></pre></div>
+<blockquote>
+<p>The request data JSON structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MjgxODY4NDl9.heRqPGQd7gGUqFCNGeaNvUbFoLI3ZbQJzTwHed1EO5Q"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/registration/</code></p>
+<h3 id='data-parameters'>Data Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Email of user</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Password of the user</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">parameters should be structured under key <code>'user'</code> </aside>
+<h1 id='authentication'>Authentication</h1><h2 id='get-user-token'>Get User token</h2>
+<p>This endpoint retrieves token for user.</p>
+
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With api, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: asdf"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/sessions/"</span>
+METHOD: POST
 </code></pre></div>
 <blockquote>
-<p>Make sure to replace <code>asdf</code> with your API key.</p>
+<p>The request data JSON structure:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 
-<p>Comming soon</p>
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="w">
 
-<p><code>Authorization: asdf</code></p>
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MjgxODY4NDl9.heRqPGQd7gGUqFCNGeaNvUbFoLI3ZbQJzTwHed1EO5Q"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/sessions/</code></p>
+<h3 id='data-parameters-2'>Data Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Email of user</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Password of the user</td>
+</tr>
+</tbody></table>
 
 <aside class="notice">
 You must replace <code>asdf</code> with your API key.
@@ -423,7 +511,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -472,7 +560,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -527,9 +615,9 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters'>Data parameters</h3>
+<h3 id='data-parameters-3'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -609,7 +697,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -623,7 +711,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-2'>Data parameters</h3>
+<h3 id='data-parameters-4'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -690,7 +778,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
@@ -723,7 +811,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
