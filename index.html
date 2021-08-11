@@ -320,6 +320,12 @@
                   <li>
                     <a href="#register-user" class="toc-h2 toc-link" data-title="Register User">Register User</a>
                   </li>
+                  <li>
+                    <a href="#verify-otp" class="toc-h2 toc-link" data-title="Verify Otp">Verify Otp</a>
+                  </li>
+                  <li>
+                    <a href="#resend-otp" class="toc-h2 toc-link" data-title="Resend Otp">Resend Otp</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -327,6 +333,20 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-user-token" class="toc-h2 toc-link" data-title="Get User token">Get User token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts" class="toc-h1 toc-link" data-title="Accounts">Accounts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-categorized-accounts" class="toc-h2 toc-link" data-title="Get categorized accounts">Get categorized accounts</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-account" class="toc-h2 toc-link" data-title="Get a specific account">Get a specific account</a>
+                  </li>
+                  <li>
+                    <a href="#create-account" class="toc-h2 toc-link" data-title="Create account">Create account</a>
                   </li>
               </ul>
           </li>
@@ -365,7 +385,14 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Unsolved API. (this is version 1 of the apis)</p>
+<p>Welcome to the Unsolved API. (Version 1)</p>
+
+<p>Keys</p>
+
+<ul>
+<li>base_auth_key</li>
+<li>user_jwt</li>
+</ul>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -373,17 +400,21 @@
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h1 id='registration'>Registration</h1><h2 id='register-user'>Register User</h2>
-<p>This endpoint is to register user.</p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/registration/"</span>
+<p>This endpoint is to register user. Generates otp and sends otp automatically</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/registrations/"</span>
 METHOD: POST
+HEADER: Authorization: Basic base_auth_key
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="w">
+        </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"terms_of_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -394,28 +425,118 @@ METHOD: POST
     </span><span class="nl">"token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MjgxODY4NDl9.heRqPGQd7gGUqFCNGeaNvUbFoLI3ZbQJzTwHed1EO5Q"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST localhost:3000/api/v1/registration/</code></p>
+<p><code>POST localhost:3000/api/v1/registrations/</code></p>
+<h3 id='http-header'>HTTP Header</h3>
+<p><code>Authorization: Basic base_auth_key</code></p>
 <h3 id='data-parameters'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Required</th>
 <th>Value</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>first_name</td>
+<td>true</td>
+<td>String</td>
+<td>First name of user</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>true</td>
+<td>String</td>
+<td>Last name of user</td>
+</tr>
+<tr>
 <td>email</td>
+<td>true</td>
 <td>String</td>
 <td>Email of user</td>
 </tr>
 <tr>
 <td>password</td>
+<td>true</td>
 <td>String</td>
 <td>Password of the user</td>
+</tr>
+<tr>
+<td>terms_of_service</td>
+<td>true</td>
+<td>boolean</td>
+<td>required true for registration</td>
 </tr>
 </tbody></table>
 
 <aside class="warning">parameters should be structured under key <code>'user'</code> </aside>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='verify-otp'>Verify Otp</h2>
+<p>This endpoint is to verify otp.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/registrations/verify_otp"</span>
+METHOD: POST
+HEADER: Authorization: Basic base_auth_key
+</code></pre></div>
+<blockquote>
+<p>The request data JSON structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"otp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otp verified"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/registrations/verify_otp</code></p>
+<h3 id='http-header-2'>HTTP Header</h3>
+<p><code>Authorization: Basic base_auth_key</code></p>
+<h3 id='data-parameters-2'>Data Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>otp</td>
+<td>true</td>
+<td>String</td>
+<td>Otp string</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='resend-otp'>Resend Otp</h2>
+<p>This endpoint is to resend otp.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/registrations/resend_otp"</span>
+METHOD: POST
+HEADER: Authorization: Basic base_auth_key
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otp verified"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/registrations/resend_otp</code></p>
+<h3 id='http-header-3'>HTTP Header</h3>
+<p><code>Authorization: Basic base_auth_key</code></p>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h1 id='authentication'>Authentication</h1><h2 id='get-user-token'>Get User token</h2>
 <p>This endpoint retrieves token for user.</p>
 
@@ -424,6 +545,7 @@ METHOD: POST
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/sessions/"</span>
 METHOD: POST
+HEADER: Authorization: Basic base_auth_key
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -441,9 +563,700 @@ METHOD: POST
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MjgxODY4NDl9.heRqPGQd7gGUqFCNGeaNvUbFoLI3ZbQJzTwHed1EO5Q"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/sessions/</code></p>
-<h3 id='data-parameters-2'>Data Parameters</h3>
+<h3 id='http-header-4'>HTTP Header</h3>
+<p><code>Authorization: Basic base_auth_key</code></p>
+<h3 id='data-parameters-3'>Data Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>true</td>
+<td>String</td>
+<td>Email of user</td>
+</tr>
+<tr>
+<td>password</td>
+<td>true</td>
+<td>String</td>
+<td>Password of the user</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You must replace <code>base_auth_key</code> with your API key.
+</aside>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h1 id='accounts'>Accounts</h1><h2 id='get-categorized-accounts'>Get categorized accounts</h2>
+<p>This endpoint retrieves specific account.</p>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/categorized_accounts"</span>
+METHOD: GET
+HEADER: Authorization: user_jwt / Basic base_auth_key
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A test Network for developers"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.499Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"account_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--dc04a59a21917d8e5546fe9e91713fb49211bd47/allen-avatar2.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e94dd5f9d1e02e82a2c3177f71fe686b319d4a0c/banner.jpg"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davisdev29"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davisdev29"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davisdev29"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"disable_logo_and_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"cafe_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"powered_by"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startup_field_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"account_membership_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_memebers_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.551Z"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startups"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"startup_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Businesses"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"feed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"feed_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feed"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"members_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"People"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"events_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Events"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"tools_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tools"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"cafe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"cafe_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"courses_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programs"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"blog_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wiki"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"jobs_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gigs"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"chat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"chat_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Channels"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona3"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona3"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAAS founders of New York"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T15:54:48.393Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"account_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--dc04a59a21917d8e5546fe9e91713fb49211bd47/allen-avatar2.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e94dd5f9d1e02e82a2c3177f71fe686b319d4a0c/banner.jpg"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"disable_logo_and_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"cafe_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"powered_by"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startup_field_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"account_membership_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_memebers_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T15:54:48.563Z"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startups"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"startup_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"feed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"feed_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feed"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"members_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Members"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"events_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Events"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"tools_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tools"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"cafe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"cafe_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"courses_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masterclass"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"blog_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Knowledge"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"jobs_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jobs"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"chat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"chat_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Groups"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona4"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona4"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAAS founders of New York"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T15:56:04.744Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"account_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--dc04a59a21917d8e5546fe9e91713fb49211bd47/allen-avatar2.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e94dd5f9d1e02e82a2c3177f71fe686b319d4a0c/banner.jpg"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"disable_logo_and_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"cafe_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"powered_by"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startup_field_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"account_membership_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_memebers_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T15:56:05.008Z"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startups"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"startup_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"feed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"feed_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feed"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"members_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Members"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"events_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Events"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"tools_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tools"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"cafe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"cafe_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"courses_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masterclass"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"blog_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Knowledge"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"jobs_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jobs"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"chat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"chat_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Groups"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"seo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAAS founders of New York"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T15:51:40.651Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"account_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--dc04a59a21917d8e5546fe9e91713fb49211bd47/allen-avatar2.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e94dd5f9d1e02e82a2c3177f71fe686b319d4a0c/banner.jpg"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"disable_logo_and_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"cafe_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"powered_by"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startup_field_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"account_membership_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_memebers_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T15:51:41.052Z"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startups"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"startup_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"feed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"feed_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feed"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"members_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Members"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"events_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Events"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"tools_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tools"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"cafe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"cafe_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"courses_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masterclass"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"blog_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Knowledge"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"jobs_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jobs"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"chat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"chat_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Groups"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona2"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona2"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAAS founders of New York"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T15:53:30.452Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"account_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davis2911"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--dc04a59a21917d8e5546fe9e91713fb49211bd47/allen-avatar2.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e94dd5f9d1e02e82a2c3177f71fe686b319d4a0c/banner.jpg"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"disable_logo_and_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"cafe_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"powered_by"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startup_field_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"account_membership_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"account_memebers_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T15:53:30.729Z"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startups"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"startup_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"startup_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"feed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"feed_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feed"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"feed_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"members_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Members"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"members_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"events_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Events"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"events_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"tools_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tools"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"tools_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"cafe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"cafe_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"cafe_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"courses_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masterclass"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"courses_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"blog_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Knowledge"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"blog_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"jobs_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jobs"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"jobs_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"chat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"chat_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Groups"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"chat_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET localhost:3000/api/v1/accounts/categorized_accounts</code></p>
+<h3 id='http-header-5'>HTTP Header</h3>
+<p><code>Authorization: Basic base_auth_key</code>
+ or
+<code>Authorization: user_jwt</code></p>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='get-a-specific-account'>Get a specific account</h2>
+<p>This endpoint retrieves specific account.</p>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/1"</span>
+METHOD: GET
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A test Network for developers"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.499Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davisdev29"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davisdev29"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davisdev29"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davis2911"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davis2911"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--dc04a59a21917d8e5546fe9e91713fb49211bd47/allen-avatar2.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e94dd5f9d1e02e82a2c3177f71fe686b319d4a0c/banner.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"startups"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"startup_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Businesses"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"startup_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"startup_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"feed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"feed_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feed"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"feed_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"feed_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"members_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"People"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"members_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"members_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"events_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Events"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"events_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"events_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"tools_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tools"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tools_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tools_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"cafe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"cafe_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cafe_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cafe_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"courses_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Programs"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"courses_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"courses_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"blog_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wiki"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"blog_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"blog_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"jobs_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gigs"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"jobs_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"jobs_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"chat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"chat_tab_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Channels"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"chat_display_tab"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"chat_tab_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"disable_logo_and_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cafe_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"powered_by"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"startup_field_settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nl">"account_membership_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"account_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"account_memebers_subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.551Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>true</td>
+<td>Integer</td>
+<td>ID of account</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='create-account'>Create account</h2>
+<p>This endpoint retrieves specific account.</p>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts"</span>
+METHOD: POST
+HEADER: <span class="s2">"Authorization: user_jwt"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A test Network for developers"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.499Z"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/accounts</code></p>
+<h3 id='http-header-6'>HTTP Header</h3>
+<p><code>Authorization: user_jwt</code></p>
+<h3 id='data-parameters-4'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -452,20 +1265,11 @@ METHOD: POST
 </tr>
 </thead><tbody>
 <tr>
-<td>email</td>
-<td>String</td>
-<td>Email of user</td>
-</tr>
-<tr>
-<td>password</td>
-<td>String</td>
-<td>Password of the user</td>
+<td>ID</td>
+<td>Integer</td>
+<td>ID of account</td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-You must replace <code>asdf</code> with your API key.
-</aside>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -474,7 +1278,7 @@ You must replace <code>asdf</code> with your API key.
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h1 id='jobs'>Jobs</h1><h2 id='get-all-jobs'>Get All jobs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"http://localhost:3000/api/jobs"</span>
 METHOD: GET
-HEADER: <span class="s2">"Authorization: asdf"</span>
+HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -511,7 +1315,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -535,7 +1339,7 @@ localhost:3000 — remeber to change it to stage/production endpoint!
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='get-a-specific-job'>Get a Specific Job</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/jobs/2"</span>
 METHOD: GET
-HEADER: <span class="s2">"Authorization: asdf"</span>
+HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -560,9 +1364,9 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -578,7 +1382,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='create-a-job'>Create a Job</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"http://localhost:3000/api/jobs"</span>
 METHOD: POST
-HEADER: <span class="s2">"Authorization: asdf"</span>
+HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -615,9 +1419,9 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-3'>Data parameters</h3>
+<h3 id='data-parameters-5'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -662,7 +1466,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='update-a-job'>Update a job</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"http://localhost:3000/api/jobs/1"</span>
 METHOD: PATCH
-HEADER: <span class="s2">"Authorization: asdf"</span>
+HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -697,9 +1501,9 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -711,7 +1515,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-4'>Data parameters</h3>
+<h3 id='data-parameters-6'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -756,7 +1560,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='add-job-to-network'>Add job to Network</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"http://localhost:3000/api/jobs/1/add_to_network"</span>
 METHOD: POST
-HEADER: <span class="s2">"Authorization: asdf"</span>
+HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -778,9 +1582,9 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -811,9 +1615,9 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -827,7 +1631,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+Error codes
 </aside>
 
 <p>The Job API uses the following error codes| :</p>
