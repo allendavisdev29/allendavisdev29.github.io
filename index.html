@@ -318,7 +318,7 @@
             <a href="#registration" class="toc-h1 toc-link" data-title="Registration">Registration</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#register-user" class="toc-h2 toc-link" data-title="Register User">Register User</a>
+                    <a href="#signup" class="toc-h2 toc-link" data-title="Signup">Signup</a>
                   </li>
                   <li>
                     <a href="#verify-otp" class="toc-h2 toc-link" data-title="Verify Otp">Verify Otp</a>
@@ -332,7 +332,10 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-user-token" class="toc-h2 toc-link" data-title="Get User token">Get User token</a>
+                    <a href="#signin" class="toc-h2 toc-link" data-title="Signin">Signin</a>
+                  </li>
+                  <li>
+                    <a href="#new-access-token" class="toc-h2 toc-link" data-title="New access token">New access token</a>
                   </li>
               </ul>
           </li>
@@ -398,16 +401,20 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Unsolved API. (Version 1)</p>
 
-<p>Keys
-- base_auth_key
-- user_jwt</p>
+<p>Keys</p>
+
+<ul>
+<li>base_auth_key</li>
+<li>access_token</li>
+<li>refresh_token</li>
+</ul>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
-<h1 id='registration'>Registration</h1><h2 id='register-user'>Register User</h2>
+<h1 id='registration'>Registration</h1><h2 id='signup'>Signup</h2>
 <p>This endpoint is to register user. Generates otp and sends otp automatically</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/registrations/"</span>
 METHOD: POST
@@ -421,6 +428,8 @@ HEADER: Authorization: Basic base_auth_key
         </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+91"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9988776655"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"terms_of_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -430,7 +439,8 @@ HEADER: Authorization: Basic base_auth_key
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MjgxODY4NDl9.heRqPGQd7gGUqFCNGeaNvUbFoLI3ZbQJzTwHed1EO5Q"</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg3NjEzNTR9.uk_g3M_W8fV-Ov--plaLGUDeI8LDPaT-iwdmJnbX4GE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3Rva2VuIjoieDZRNnZiNkJuNG80U2lCTGgxajNWUlJOIiwiZXhwIjoxNjYwMjk3Mjk0fQ.Hc_oMp0LvQ-BuUGi4SFyT9eNy59WdftdKOooTXGjxJw"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/registrations/</code></p>
@@ -456,6 +466,18 @@ HEADER: Authorization: Basic base_auth_key
 <td>true</td>
 <td>String</td>
 <td>Last name of user</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>true</td>
+<td>String</td>
+<td>Phone country code</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>true</td>
+<td>String</td>
+<td>Phone number of the user</td>
 </tr>
 <tr>
 <td>email</td>
@@ -484,7 +506,7 @@ HEADER: Authorization: Basic base_auth_key
 <p>This endpoint is to verify otp.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/registrations/verify_otp"</span>
 METHOD: POST
-HEADER: Authorization: Basic base_auth_key
+HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -503,7 +525,7 @@ HEADER: Authorization: Basic base_auth_key
 </span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/registrations/verify_otp</code></p>
 <h3 id='http-header-2'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code></p>
+<p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-2'>Data Parameters</h3>
 <table><thead>
 <tr>
@@ -526,27 +548,27 @@ HEADER: Authorization: Basic base_auth_key
 <p>This endpoint is to resend otp.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/registrations/resend_otp"</span>
 METHOD: POST
-HEADER: Authorization: Basic base_auth_key
+HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otp verified"</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otp resent"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/registrations/resend_otp</code></p>
 <h3 id='http-header-3'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code></p>
+<p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
-<h1 id='authentication'>Authentication</h1><h2 id='get-user-token'>Get User token</h2>
-<p>This endpoint retrieves token for user.</p>
+<h1 id='authentication'>Authentication</h1><h2 id='signin'>Signin</h2>
+<p>This endpoint signs in user.</p>
 
 <blockquote>
 <p>To authorize, use this code:</p>
@@ -569,7 +591,8 @@ HEADER: Authorization: Basic base_auth_key
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MjgxODY4NDl9.heRqPGQd7gGUqFCNGeaNvUbFoLI3ZbQJzTwHed1EO5Q"</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg3NjQ5OTR9.Fy9eDDQCnRVdqk7ylPl_at-Pjo8NLsfYA6Oe_hHYmUo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJsel9reV81eDgiOiJlQm1ud3o4Z3p3a3FwMkpteEVYeHVyTGUiLCJleHAiOjE2NjAzMDA5MzR9.3oS42Z1_9_Qp0kraQUms7lsJq3jbzt_UL119tnHyQyk"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/sessions/</code></p>
@@ -603,6 +626,29 @@ You must replace <code>base_auth_key</code> with your API key.
 </aside>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='new-access-token'>New access token</h2>
+<p>This endpoint signs in user.</p>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/sessions/refresh"</span>
+METHOD: GET
+HEADER: Authorization: Bearer refresh_token
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg3NjQ5OTR9.Fy9eDDQCnRVdqk7ylPl_at-Pjo8NLsfYA6Oe_hHYmUo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJsel9reV81eDgiOiJlQm1ud3o4Z3p3a3FwMkpteEVYeHVyTGUiLCJleHAiOjE2NjAzMDA5MzR9.3oS42Z1_9_Qp0kraQUms7lsJq3jbzt_UL119tnHyQyk"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET localhost:3000/api/v1/sessions/refresh</code></p>
+<h3 id='http-header-5'>HTTP Header</h3>
+<p><code>Authorization: Bearer refresh_token</code></p>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -613,66 +659,9 @@ You must replace <code>base_auth_key</code> with your API key.
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"llocalhost:3000/api/v1/users/1"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/users/1"</span>
 METHOD: GET
-HEADER: Authorization: Basic base_auth_key
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davis2911"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davis2911"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--dc04a59a21917d8e5546fe9e91713fb49211bd47/allen-avatar2.png"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e94dd5f9d1e02e82a2c3177f71fe686b319d4a0c/banner.jpg"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"about"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"full_time_work_start_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"reputation_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"linkedin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.linkedin.com/allendavis2911"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"github"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.github.com/allendavis2911"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"behance"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET localhost:3000/api/v1/sessions/&lt;ID&gt;</code></p>
-<h3 id='http-header-5'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>true</td>
-<td>Integer</td>
-<td>ID of the user</td>
-</tr>
-</tbody></table>
-
-<!-- ------------------------------------------------------------------------------------------------------------------- -->
-<h2 id='get-current-user'>Get Current User</h2>
-<p>This endpoint retrieves specific user data.</p>
-
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"llocalhost:3000/api/v1/users/current_user"</span>
-METHOD: GET
-HEADER: Authorization: Basic base_auth_key
+HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -700,9 +689,66 @@ HEADER: Authorization: Basic base_auth_key
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET localhost:3000/api/v1/sessions/current_user</code></p>
+<p><code>GET localhost:3000/api/v1/sessions/&lt;ID&gt;</code></p>
 <h3 id='http-header-6'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code></p>
+<p><code>Authorization: Bearer access_token</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>true</td>
+<td>Integer</td>
+<td>ID of the user</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='get-current-user'>Get Current User</h2>
+<p>This endpoint retrieves specific user data.</p>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"llocalhost:3000/api/v1/users/current_user"</span>
+METHOD: GET
+HEADER: Authorization: Bearer access_token
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"davis2911"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen davis2911"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davis2911"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--dc04a59a21917d8e5546fe9e91713fb49211bd47/allen-avatar2.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e94dd5f9d1e02e82a2c3177f71fe686b319d4a0c/banner.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"about"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"full_time_work_start_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"reputation_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"linkedin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.linkedin.com/allendavis2911"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"github"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.github.com/allendavis2911"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"behance"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET localhost:3000/api/v1/sessions/current_user</code></p>
+<h3 id='http-header-7'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -717,7 +763,7 @@ HEADER: Authorization: Basic base_auth_key
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/categorized_accounts"</span>
 METHOD: GET
-HEADER: Authorization: user_jwt / Basic base_auth_key
+HEADER: Authorization: Bearer access_token / Basic base_auth_key
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1197,12 +1243,12 @@ HEADER: Authorization: user_jwt / Basic base_auth_key
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/categorized_accounts</code></p>
-<h3 id='http-header-7'>HTTP Header</h3>
+<h3 id='http-header-8'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
-<code>Authorization: user_jwt</code></p>
+<code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='get-a-specific-account'>Get a specific account</h2>
@@ -1314,7 +1360,7 @@ METHOD: GET
         </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.551Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -1362,9 +1408,9 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
     </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.499Z"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts</code></p>
-<h3 id='http-header-8'>HTTP Header</h3>
+<h3 id='http-header-9'>HTTP Header</h3>
 <p><code>Authorization: user_jwt</code></p>
 <h3 id='data-parameters-4'>DATA Parameters</h3>
 <table><thead>
@@ -1388,7 +1434,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h1 id='jobs'>Jobs</h1><h2 id='get-all-jobs'>Get All jobs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"http://localhost:3000/api/jobs"</span>
 METHOD: GET
-HEADER: <span class="s2">"Authorization: user_jwt"</span>
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1425,7 +1471,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -1449,7 +1495,7 @@ localhost:3000 — remeber to change it to stage/production endpoint!
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='get-a-specific-job'>Get a Specific Job</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/jobs/2"</span>
 METHOD: GET
-HEADER: <span class="s2">"Authorization: user_jwt"</span>
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1474,7 +1520,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
@@ -1492,7 +1538,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='create-a-job'>Create a Job</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"http://localhost:3000/api/jobs"</span>
 METHOD: POST
-HEADER: <span class="s2">"Authorization: user_jwt"</span>
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -1529,7 +1575,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='data-parameters-5'>Data parameters</h3>
 <table><thead>
@@ -1576,7 +1622,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='update-a-job'>Update a job</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"http://localhost:3000/api/jobs/1"</span>
 METHOD: PATCH
-HEADER: <span class="s2">"Authorization: user_jwt"</span>
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -1611,7 +1657,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
@@ -1670,7 +1716,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='add-job-to-network'>Add job to Network</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"http://localhost:3000/api/jobs/1/add_to_network"</span>
 METHOD: POST
-HEADER: <span class="s2">"Authorization: user_jwt"</span>
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1692,7 +1738,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
@@ -1710,7 +1756,7 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='remove-job-from-network'>Remove job from network</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"http://localhost:3000/api/jobs/1/remove_from_network"</span>
 METHOD: DELETE
-HEADER: <span class="s2">"Authorization: asdf"</span>
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1725,7 +1771,7 @@ HEADER: <span class="s2">"Authorization: asdf"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
