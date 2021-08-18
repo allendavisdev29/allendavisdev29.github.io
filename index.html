@@ -374,6 +374,9 @@
                     <a href="#create-account" class="toc-h2 toc-link" data-title="Create account">Create account</a>
                   </li>
                   <li>
+                    <a href="#join-account" class="toc-h2 toc-link" data-title="Join account">Join account</a>
+                  </li>
+                  <li>
                     <a href="#get-categorized-accounts" class="toc-h2 toc-link" data-title="Get categorized accounts">Get categorized accounts</a>
                   </li>
               </ul>
@@ -1108,7 +1111,7 @@ METHOD: GET
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts"</span>
 METHOD: POST
-HEADER: <span class="s2">"Authorization: user_jwt"</span>
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1131,8 +1134,45 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
 </span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts</code></p>
 <h3 id='http-header-11'>HTTP Header</h3>
-<p><code>Authorization: user_jwt</code></p>
+<p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-5'>DATA Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID of account</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='join-account'>Join account</h2>
+<p>current user will join this account.</p>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/1/join_account"</span>
+METHOD: POST
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully joined the network"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/accounts/&lt;ID&gt;/join_account</code></p>
+<h3 id='http-header-12'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
+<h3 id='data-parameters-6'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1636,9 +1676,9 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/categorized_accounts</code></p>
-<h3 id='http-header-12'>HTTP Header</h3>
+<h3 id='http-header-13'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
 <code>Authorization: Bearer access_token</code></p>
@@ -1687,7 +1727,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -1736,7 +1776,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
@@ -1791,9 +1831,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-6'>Data parameters</h3>
+<h3 id='data-parameters-7'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1873,7 +1913,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
@@ -1887,7 +1927,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-7'>Data parameters</h3>
+<h3 id='data-parameters-8'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1954,7 +1994,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
@@ -1987,7 +2027,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-19'>HTTP Request</h3>
+<h3 id='http-request-20'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
