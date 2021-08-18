@@ -337,6 +337,9 @@
                   <li>
                     <a href="#new-access-token" class="toc-h2 toc-link" data-title="New access token">New access token</a>
                   </li>
+                  <li>
+                    <a href="#logout" class="toc-h2 toc-link" data-title="Logout">Logout</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -443,7 +446,8 @@ HEADER: Authorization: Basic base_auth_key
         </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9988776655"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"terms_of_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"device_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pqrst"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
@@ -508,9 +512,15 @@ HEADER: Authorization: Basic base_auth_key
 <td>boolean</td>
 <td>required true for registration</td>
 </tr>
+<tr>
+<td>device_token</td>
+<td>true</td>
+<td>String</td>
+<td>Device token of the mobile. Won&#39;t raise error if missing</td>
+</tr>
 </tbody></table>
 
-<aside class="warning">parameters should be structured under key <code>'user'</code> </aside>
+<aside class="warning">user parameters should be structured under key <code>'user'</code> </aside>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='verify-otp'>Verify Otp</h2>
@@ -580,10 +590,6 @@ HEADER: Authorization: Bearer access_token
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h1 id='authentication'>Authentication</h1><h2 id='signin'>Signin</h2>
 <p>This endpoint signs in user.</p>
-
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/sessions/"</span>
 METHOD: POST
 HEADER: Authorization: Basic base_auth_key
@@ -594,7 +600,8 @@ HEADER: Authorization: Basic base_auth_key
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="w">
+    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"device_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pqrst"</span><span class="w">
 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -630,6 +637,12 @@ HEADER: Authorization: Basic base_auth_key
 <td>String</td>
 <td>Password of the user</td>
 </tr>
+<tr>
+<td>device_token</td>
+<td>true</td>
+<td>String</td>
+<td>Device token of the mobile. Won&#39;t raise error if missing</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -639,10 +652,6 @@ You must replace <code>base_auth_key</code> with your API key.
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='new-access-token'>New access token</h2>
 <p>This endpoint signs in user.</p>
-
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/sessions/refresh"</span>
 METHOD: GET
 HEADER: Authorization: Bearer refresh_token
@@ -658,6 +667,40 @@ HEADER: Authorization: Bearer refresh_token
 <p><code>GET localhost:3000/api/v1/sessions/refresh</code></p>
 <h3 id='http-header-5'>HTTP Header</h3>
 <p><code>Authorization: Bearer refresh_token</code></p>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='logout'>Logout</h2>
+<p>This endpoint logs out the user.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/sessions"</span>
+METHOD: DELETE
+HEADER: Authorization: Bearer refresh_token
+</code></pre></div>
+<blockquote>
+<p>The request data JSON structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"device_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pqrst"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>DELETE localhost:3000/api/v1/sessions/</code></p>
+<h3 id='http-header-6'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
+<h3 id='data-parameters-4'>Data Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_token</td>
+<td>true</td>
+<td>String</td>
+<td>Device token of the mobile. Won&#39;t raise error if missing</td>
+</tr>
+</tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -699,9 +742,9 @@ HEADER: Authorization: Bearer access_token
         </span><span class="nl">"behance"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/sessions/&lt;ID&gt;</code></p>
-<h3 id='http-header-6'>HTTP Header</h3>
+<h3 id='http-header-7'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -756,9 +799,9 @@ HEADER: Authorization: Bearer access_token
         </span><span class="nl">"behance"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/sessions/current_user</code></p>
-<h3 id='http-header-7'>HTTP Header</h3>
+<h3 id='http-header-8'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -785,9 +828,9 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
         </span><span class="s2">"category 2"</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/categories</code></p>
-<h3 id='http-header-8'>HTTP Header</h3>
+<h3 id='http-header-9'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
 <code>Authorization: Bearer access_token</code></p>
@@ -896,13 +939,13 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/</code></p>
 
 <p>or</p>
 
 <p><code>GET localhost:3000/api/v1/accounts/?category=trending</code></p>
-<h3 id='http-header-9'>HTTP Header</h3>
+<h3 id='http-header-10'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
 <code>Authorization: Bearer access_token</code></p>
@@ -1037,7 +1080,7 @@ METHOD: GET
         </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.551Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
@@ -1085,11 +1128,11 @@ HEADER: <span class="s2">"Authorization: user_jwt"</span>
     </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.499Z"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts</code></p>
-<h3 id='http-header-10'>HTTP Header</h3>
+<h3 id='http-header-11'>HTTP Header</h3>
 <p><code>Authorization: user_jwt</code></p>
-<h3 id='data-parameters-4'>DATA Parameters</h3>
+<h3 id='data-parameters-5'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1593,9 +1636,9 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/categorized_accounts</code></p>
-<h3 id='http-header-11'>HTTP Header</h3>
+<h3 id='http-header-12'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
 <code>Authorization: Bearer access_token</code></p>
@@ -1644,7 +1687,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -1693,7 +1736,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
@@ -1748,9 +1791,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-5'>Data parameters</h3>
+<h3 id='data-parameters-6'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1830,7 +1873,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
@@ -1844,7 +1887,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-6'>Data parameters</h3>
+<h3 id='data-parameters-7'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1911,7 +1954,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
@@ -1944,7 +1987,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
