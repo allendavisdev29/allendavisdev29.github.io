@@ -858,6 +858,12 @@ OR
 URL: <span class="s2">"localhost:3000/api/v1/accounts/?category=trending"</span>
 METHOD: GET
 HEADER: Authorization: Bearer access_token / Basic base_auth_key
+
+OR
+
+URL: <span class="s2">"localhost:3000/api/v1/accounts/?search=react"</span>
+METHOD: GET
+HEADER: Authorization: Bearer access_token / Basic base_auth_key
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -948,6 +954,10 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
 <p>or</p>
 
 <p><code>GET localhost:3000/api/v1/accounts/?category=trending</code></p>
+
+<p>or</p>
+
+<p><code>GET localhost:3000/api/v1/accounts/?search=react</code></p>
 <h3 id='http-header-10'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
@@ -963,9 +973,15 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
 </thead><tbody>
 <tr>
 <td>category</td>
-<td>true</td>
+<td>optional</td>
 <td>string</td>
 <td>name of the category</td>
+</tr>
+<tr>
+<td>search</td>
+<td>optional</td>
+<td>string</td>
+<td>search term</td>
 </tr>
 </tbody></table>
 
