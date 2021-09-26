@@ -351,6 +351,9 @@
                   <li>
                     <a href="#get-current-user" class="toc-h2 toc-link" data-title="Get Current User">Get Current User</a>
                   </li>
+                  <li>
+                    <a href="#update-user" class="toc-h2 toc-link" data-title="Update User">Update User</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -788,10 +791,6 @@ HEADER: Authorization: Bearer access_token
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='get-current-user'>Get Current User</h2>
 <p>This endpoint retrieves specific user data.</p>
-
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/users/current_user"</span>
 METHOD: GET
 HEADER: Authorization: Bearer access_token
@@ -822,9 +821,90 @@ HEADER: Authorization: Bearer access_token
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET localhost:3000/api/v1/sessions/current_user</code></p>
+<p><code>GET localhost:3000/api/v1/users/current_user</code></p>
 <h3 id='http-header-8'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='update-user'>Update User</h2>
+<p>This endpoint update user data. current user should be same as the user id in url</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/users/1"</span>
+METHOD: PATCH
+HEADER: Authorization: Bearer access_token
+</code></pre></div>
+<blockquote>
+<p>The request data JSON structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="s2">"Davis"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9988776655"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+91"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"all_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ror"</span><span class="p">,</span><span class="w"> </span><span class="s2">"javascript"</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"all_industry_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"it"</span><span class="p">,</span><span class="w"> </span><span class="s2">"computer-science"</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="err">file</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="err">file</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_profile_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"about"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"linkedin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.linkedin.com/allendavis"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.twitter.com/allendavis"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"github"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.github.com/allendavis"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"behance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.behance.com/allendavis"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.allendavis.com/"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blog.com/allendavis"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"full_time_work_start_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Davis"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allen-davis"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d0a8cd460e689d2cc799bacf15b1a9c6bdf697bc/1616072204090.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ea49f94c6260f340fe4b87fe725a4369a8e75b4e/highres-Pentax-K-1-with-70-200mm-lens-20160428_100020_1461842110.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"about"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"full_time_work_start_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"reputation_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"linkedin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.linkedin.com/allendavis"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.twitter.com/allendavis"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.allendavis.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"blog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.blog.com/allendavis"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"github"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.github.com/allendavis"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"behance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.behance.com/allendavis"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
+<p><code>PATCH localhost:3000/api/v1/users/&lt;ID&gt;</code></p>
+<h3 id='http-header-9'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>true</td>
+<td>Integer</td>
+<td>ID of the current user</td>
+</tr>
+</tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -850,9 +930,9 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
         </span><span class="s2">"category 2"</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/categories</code></p>
-<h3 id='http-header-9'>HTTP Header</h3>
+<h3 id='http-header-10'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
 <code>Authorization: Bearer access_token</code></p>
@@ -967,7 +1047,7 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/</code></p>
 
 <p>or</p>
@@ -977,11 +1057,11 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
 <p>or</p>
 
 <p><code>GET localhost:3000/api/v1/accounts/?search=react</code></p>
-<h3 id='http-header-10'>HTTP Header</h3>
+<h3 id='http-header-11'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
 <code>Authorization: Bearer access_token</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1118,9 +1198,9 @@ METHOD: GET
         </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.551Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1166,9 +1246,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T06:18:10.499Z"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts</code></p>
-<h3 id='http-header-11'>HTTP Header</h3>
+<h3 id='http-header-12'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-5'>DATA Parameters</h3>
 <table><thead>
@@ -1203,9 +1283,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully joined the network"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts/&lt;ID&gt;/join_account</code></p>
-<h3 id='http-header-12'>HTTP Header</h3>
+<h3 id='http-header-13'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-6'>DATA Parameters</h3>
 <table><thead>
@@ -1351,9 +1431,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token / Basic base_auth_k
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-15'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-13'>HTTP Header</h3>
+<h3 id='http-header-14'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
 <code>Authorization: Bearer access_token</code></p>
@@ -1857,9 +1937,9 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-15'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-16'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/categorized_accounts</code></p>
-<h3 id='http-header-14'>HTTP Header</h3>
+<h3 id='http-header-15'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
 <code>Authorization: Bearer access_token</code></p>
@@ -1997,9 +2077,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token / Basic base_auth_k
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-16'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-15'>HTTP Header</h3>
+<h3 id='http-header-16'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
 <code>Authorization: Bearer access_token</code></p>
@@ -2053,9 +2133,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"pinned_in_startup_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"visible_on_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-17'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-18'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts/&lt;ID&gt;</code></p>
-<h3 id='http-header-16'>HTTP Header</h3>
+<h3 id='http-header-17'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-9'>DATA Parameters</h3>
 <table><thead>
@@ -2116,7 +2196,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -2165,9 +2245,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-19'>HTTP Request</h3>
+<h3 id='http-request-20'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2220,7 +2300,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-20'>HTTP Request</h3>
+<h3 id='http-request-21'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='data-parameters-10'>Data parameters</h3>
 <table><thead>
@@ -2302,9 +2382,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-21'>HTTP Request</h3>
+<h3 id='http-request-22'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2383,9 +2463,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-22'>HTTP Request</h3>
+<h3 id='http-request-23'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2416,9 +2496,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-23'>HTTP Request</h3>
+<h3 id='http-request-24'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
-<h3 id='url-parameters-7'>URL Parameters</h3>
+<h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
