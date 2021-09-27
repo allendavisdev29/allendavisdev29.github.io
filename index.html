@@ -1920,6 +1920,10 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h1 id='feed'>Feed</h1><h2 id='get-account-feed-2'>Get Account Feed</h2>
 <p>this endpoint will get all posts of a particular account.</p>
+
+<blockquote>
+<p>Url:</p>
+</blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/1/feed"</span>
 METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token / Basic base_auth_key"</span>
@@ -2047,7 +2051,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token / Basic base_auth_k
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-17'>HTTP Request</h3>
-<p><code>POST localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
+<p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
 <h3 id='http-header-16'>HTTP Header</h3>
 <p><code>Authorization: Basic base_auth_key</code>
  or
