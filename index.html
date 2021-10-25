@@ -460,9 +460,15 @@
 <p>Keys</p>
 
 <ul>
-<li>base_auth_key</li>
+<li>api-key</li>
 <li>access_token</li>
 <li>refresh_token</li>
+</ul>
+
+<p>Header</p>
+
+<ul>
+<li>&quot;Header: x-api-key: api-key&quot; is a required header to access all apis</li>
 </ul>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -474,7 +480,6 @@
 <p>This endpoint is to register user. Generates otp and sends otp automatically</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/registrations/"</span>
 METHOD: POST
-HEADER: Authorization: Basic base_auth_key
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -501,8 +506,6 @@ HEADER: Authorization: Basic base_auth_key
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/registrations/</code></p>
-<h3 id='http-header'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code></p>
 <h3 id='data-parameters'>Data Parameters</h3>
 <table><thead>
 <tr>
@@ -587,7 +590,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/registrations/verify_otp</code></p>
-<h3 id='http-header-2'>HTTP Header</h3>
+<h3 id='http-header'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-2'>Data Parameters</h3>
 <table><thead>
@@ -622,7 +625,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/registrations/resend_otp</code></p>
-<h3 id='http-header-3'>HTTP Header</h3>
+<h3 id='http-header-2'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -634,7 +637,6 @@ HEADER: Authorization: Bearer access_token
 <p>This endpoint signs in user.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/sessions/"</span>
 METHOD: POST
-HEADER: Authorization: Basic base_auth_key
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -656,8 +658,6 @@ HEADER: Authorization: Basic base_auth_key
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/sessions/</code></p>
-<h3 id='http-header-4'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code></p>
 <h3 id='data-parameters-3'>Data Parameters</h3>
 <table><thead>
 <tr>
@@ -688,7 +688,7 @@ HEADER: Authorization: Basic base_auth_key
 </tbody></table>
 
 <aside class="notice">
-You must replace <code>base_auth_key</code> with your API key.
+You must replace <code>api-key</code> with your API key.
 </aside>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -707,7 +707,7 @@ HEADER: Authorization: Bearer refresh_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/sessions/refresh</code></p>
-<h3 id='http-header-5'>HTTP Header</h3>
+<h3 id='http-header-3'>HTTP Header</h3>
 <p><code>Authorization: Bearer refresh_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -725,7 +725,7 @@ HEADER: Authorization: Bearer refresh_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>DELETE localhost:3000/api/v1/sessions/</code></p>
-<h3 id='http-header-6'>HTTP Header</h3>
+<h3 id='http-header-4'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-4'>Data Parameters</h3>
 <table><thead>
@@ -753,7 +753,6 @@ HEADER: Authorization: Bearer refresh_token
 <p>This endpoint sends password reset email with otp to the user.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/password_reset"</span>
 METHOD: POST
-HEADER: Authorization: Basic base_auth_key
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -763,8 +762,6 @@ HEADER: Authorization: Basic base_auth_key
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/password_reset/</code></p>
-<h3 id='http-header-7'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code></p>
 <h3 id='data-parameters-5'>Data Parameters</h3>
 <table><thead>
 <tr>
@@ -787,7 +784,6 @@ HEADER: Authorization: Basic base_auth_key
 <p>This endpoint verifies password reset otp.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/password_reset/verify_otp"</span>
 METHOD: POST
-HEADER: Authorization: Basic base_auth_key
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -798,8 +794,6 @@ HEADER: Authorization: Basic base_auth_key
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/password_reset/verify_otp</code></p>
-<h3 id='http-header-8'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code></p>
 <h3 id='data-parameters-6'>Data Parameters</h3>
 <table><thead>
 <tr>
@@ -828,7 +822,6 @@ HEADER: Authorization: Basic base_auth_key
 <p>This endpoint resends user password reset otp.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/password_reset/resend_reset_otp"</span>
 METHOD: POST
-HEADER: Authorization: Basic base_auth_key
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
@@ -838,8 +831,6 @@ HEADER: Authorization: Basic base_auth_key
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/password_reset/resend_reset_otp</code></p>
-<h3 id='http-header-9'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code></p>
 <h3 id='data-parameters-7'>Data Parameters</h3>
 <table><thead>
 <tr>
@@ -899,7 +890,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/sessions/&lt;ID&gt;</code></p>
-<h3 id='http-header-10'>HTTP Header</h3>
+<h3 id='http-header-5'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -952,7 +943,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/users/current_user</code></p>
-<h3 id='http-header-11'>HTTP Header</h3>
+<h3 id='http-header-6'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -1017,7 +1008,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/users/&lt;ID&gt;</code></p>
-<h3 id='http-header-12'>HTTP Header</h3>
+<h3 id='http-header-7'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -1077,7 +1068,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/users/update_avatar</code></p>
-<h3 id='http-header-13'>HTTP Header</h3>
+<h3 id='http-header-8'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -1093,7 +1084,7 @@ HEADER: Authorization: Bearer access_token
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/categories"</span>
 METHOD: GET
-HEADER: Authorization: Bearer access_token / Basic base_auth_key
+HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1106,10 +1097,8 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/categories</code></p>
-<h3 id='http-header-14'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code>
- or
-<code>Authorization: Bearer access_token</code></p>
+<h3 id='http-header-9'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -1124,19 +1113,19 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/"</span>
 METHOD: GET
-HEADER: Authorization: Bearer access_token / Basic base_auth_key
+HEADER: Authorization: Bearer access_token
 
 OR
 
 URL: <span class="s2">"localhost:3000/api/v1/accounts/?category=trending"</span>
 METHOD: GET
-HEADER: Authorization: Bearer access_token / Basic base_auth_key
+HEADER: Authorization: Bearer access_token
 
 OR
 
 URL: <span class="s2">"localhost:3000/api/v1/accounts/?search=react"</span>
 METHOD: GET
-HEADER: Authorization: Bearer access_token / Basic base_auth_key
+HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1231,10 +1220,8 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
 <p>or</p>
 
 <p><code>GET localhost:3000/api/v1/accounts/?search=react</code></p>
-<h3 id='http-header-15'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code>
- or
-<code>Authorization: Bearer access_token</code></p>
+<h3 id='http-header-10'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1387,7 +1374,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts</code></p>
-<h3 id='http-header-16'>HTTP Header</h3>
+<h3 id='http-header-11'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-8'>DATA Parameters</h3>
 <table><thead>
@@ -1424,7 +1411,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-18'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts/&lt;ID&gt;/join_account</code></p>
-<h3 id='http-header-17'>HTTP Header</h3>
+<h3 id='http-header-12'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-9'>DATA Parameters</h3>
 <table><thead>
@@ -1450,7 +1437,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/1/feed"</span>
 METHOD: GET
-HEADER: <span class="s2">"Authorization: Bearer access_token / Basic base_auth_key"</span>
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1576,10 +1563,8 @@ HEADER: <span class="s2">"Authorization: Bearer access_token / Basic base_auth_k
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-19'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-18'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code>
- or
-<code>Authorization: Bearer access_token</code></p>
+<h3 id='http-header-13'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-10'>DATA Parameters</h3>
 <table><thead>
 <tr>
@@ -1600,7 +1585,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token / Basic base_auth_k
 <p>This endpoint retrieves specific account.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/categorized_accounts"</span>
 METHOD: GET
-HEADER: Authorization: Bearer access_token / Basic base_auth_key
+HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2082,10 +2067,8 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-20'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/categorized_accounts</code></p>
-<h3 id='http-header-19'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code>
- or
-<code>Authorization: Bearer access_token</code></p>
+<h3 id='http-header-14'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -2100,7 +2083,7 @@ HEADER: Authorization: Bearer access_token / Basic base_auth_key
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/1/feed"</span>
 METHOD: GET
-HEADER: <span class="s2">"Authorization: Bearer access_token / Basic base_auth_key"</span>
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2226,10 +2209,8 @@ HEADER: <span class="s2">"Authorization: Bearer access_token / Basic base_auth_k
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-21'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-20'>HTTP Header</h3>
-<p><code>Authorization: Basic base_auth_key</code>
- or
-<code>Authorization: Bearer access_token</code></p>
+<h3 id='http-header-15'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-11'>DATA Parameters</h3>
 <table><thead>
 <tr>
@@ -2282,7 +2263,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-22'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts/&lt;ID&gt;</code></p>
-<h3 id='http-header-21'>HTTP Header</h3>
+<h3 id='http-header-16'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-12'>DATA Parameters</h3>
 <table><thead>
