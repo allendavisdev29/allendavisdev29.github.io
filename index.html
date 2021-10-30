@@ -1035,13 +1035,13 @@ HEADER: Authorization: Bearer access_token
 <p>This endpoint resets user password.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/users/update_password"</span>
 METHOD: PATCH
-HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
 <p>The request data JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allendavis2911@gmail.com"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password@123"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1073,8 +1073,6 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/users/update_password</code></p>
-<h3 id='http-header-8'>HTTP Header</h3>
-<p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='update-user-avatar'>Update User Avatar</h2>
@@ -1117,7 +1115,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/users/update_avatar</code></p>
-<h3 id='http-header-9'>HTTP Header</h3>
+<h3 id='http-header-8'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -1146,7 +1144,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-15'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/categories</code></p>
-<h3 id='http-header-10'>HTTP Header</h3>
+<h3 id='http-header-9'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -1269,7 +1267,7 @@ HEADER: Authorization: Bearer access_token
 <p>or</p>
 
 <p><code>GET localhost:3000/api/v1/accounts/?search=react</code></p>
-<h3 id='http-header-11'>HTTP Header</h3>
+<h3 id='http-header-10'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
@@ -1423,7 +1421,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-18'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts</code></p>
-<h3 id='http-header-12'>HTTP Header</h3>
+<h3 id='http-header-11'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-8'>DATA Parameters</h3>
 <table><thead>
@@ -1460,7 +1458,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-19'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts/&lt;ID&gt;/join_account</code></p>
-<h3 id='http-header-13'>HTTP Header</h3>
+<h3 id='http-header-12'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-9'>DATA Parameters</h3>
 <table><thead>
@@ -1612,7 +1610,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-20'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-14'>HTTP Header</h3>
+<h3 id='http-header-13'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-10'>DATA Parameters</h3>
 <table><thead>
@@ -2116,7 +2114,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-21'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/categorized_accounts</code></p>
-<h3 id='http-header-15'>HTTP Header</h3>
+<h3 id='http-header-14'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -2258,7 +2256,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-22'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-16'>HTTP Header</h3>
+<h3 id='http-header-15'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-11'>DATA Parameters</h3>
 <table><thead>
@@ -2312,7 +2310,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-23'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts/&lt;ID&gt;</code></p>
-<h3 id='http-header-17'>HTTP Header</h3>
+<h3 id='http-header-16'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-12'>DATA Parameters</h3>
 <table><thead>
