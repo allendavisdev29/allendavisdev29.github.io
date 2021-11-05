@@ -424,6 +424,9 @@
                   <li>
                     <a href="#get-specific-post" class="toc-h2 toc-link" data-title="Get specific Post">Get specific Post</a>
                   </li>
+                  <li>
+                    <a href="#get-post-reacted-users" class="toc-h2 toc-link" data-title="Get post reacted users">Get post reacted users</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -3161,6 +3164,92 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='get-post-reacted-users'>Get post reacted users</h2>
+<p>this endpoint will get all users who have liked the post.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/posts/1/reacted_users?all=true"</span>
+METHOD: GET
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ThumbsUpSign"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F44D"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128077;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-05T08:01:31.193Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='http-request-25'>HTTP Request</h3>
+<p><code>GET localhost:3000/api/v1/posts/&lt;ID&gt;/reacted_users?all=true</code></p>
+<h3 id='http-header-18'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
+<h3 id='data-parameters-14'>DATA Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID of the post</td>
+</tr>
+</tbody></table>
+<h3 id='filter-options-parameters'>Filter Options Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>all</td>
+<td>true</td>
+</tr>
+<tr>
+<td>black_heart_symbol</td>
+<td>true</td>
+</tr>
+<tr>
+<td>fire</td>
+<td>true</td>
+</tr>
+<tr>
+<td>rocket</td>
+<td>true</td>
+</tr>
+<tr>
+<td>slightly_smiling_face</td>
+<td>true</td>
+</tr>
+<tr>
+<td>thumbs_up_sign</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -3204,7 +3293,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-25'>HTTP Request</h3>
+<h3 id='http-request-26'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -3253,7 +3342,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-26'>HTTP Request</h3>
+<h3 id='http-request-27'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
@@ -3308,9 +3397,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-27'>HTTP Request</h3>
+<h3 id='http-request-28'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-14'>Data parameters</h3>
+<h3 id='data-parameters-15'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3390,7 +3479,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-28'>HTTP Request</h3>
+<h3 id='http-request-29'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
@@ -3404,7 +3493,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-15'>Data parameters</h3>
+<h3 id='data-parameters-16'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3471,7 +3560,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-29'>HTTP Request</h3>
+<h3 id='http-request-30'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
@@ -3504,7 +3593,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-30'>HTTP Request</h3>
+<h3 id='http-request-31'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
 <h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
