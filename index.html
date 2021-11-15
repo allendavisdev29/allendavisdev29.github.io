@@ -434,6 +434,9 @@
                     <a href="#get-specific-post" class="toc-h2 toc-link" data-title="Get specific Post">Get specific Post</a>
                   </li>
                   <li>
+                    <a href="#create-post" class="toc-h2 toc-link" data-title="Create Post">Create Post</a>
+                  </li>
+                  <li>
                     <a href="#get-post-reacted-users" class="toc-h2 toc-link" data-title="Get post reacted users">Get post reacted users</a>
                   </li>
                   <li>
@@ -4980,7 +4983,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h1 id='posts'>Posts</h1><h2 id='get-specific-post'>Get specific Post</h2>
-<p>this endpoint will get all posts of a particular account.</p>
+<p>This endpoint will get all posts of a particular account.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/posts/1"</span>
 METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
@@ -5109,6 +5112,182 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='create-post'>Create Post</h2>
+<p>This endpoint will create post in an account.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/posts"</span>
+METHOD: POST
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The request data JSON structure (link url example):</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"link url: test api"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://uxdesign.cc/the-real-reason-facebook-is-changing-its-name-to-meta-what-you-must-know-from-facebooks-2021-e8f12cdc797c"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url_site"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The real reason Facebook is changing its name to Meta"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What you must know from Facebook’s 2021 AR/VR conference."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://miro.medium.com/max/1200/1*88U0EI-rnnQIuIkTFIC1cQ.png"</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"pinned"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"pinned_in_startup_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"visible_on_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"startup_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The request data JSON structure (video url example):</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"link url: test api"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=pfeyxy7wVXg"</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://uxdesign.cc/the-real-reason-facebook-is-changing-its-name-to-meta-what-you-must-know-from-facebooks-2021-e8f12cdc797c"</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url_site"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The real reason Facebook is changing its name to Meta"</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What you must know from Facebook’s 2021 AR/VR conference."</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://miro.medium.com/max/1200/1*88U0EI-rnnQIuIkTFIC1cQ.png"</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"pinned"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"pinned_in_startup_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"visible_on_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"startup_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The request data JSON structure (images url example):</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"link url: test api"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=pfeyxy7wVXg"</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://uxdesign.cc/the-real-reason-facebook-is-changing-its-name-to-meta-what-you-must-know-from-facebooks-2021-e8f12cdc797c"</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url_site"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The real reason Facebook is changing its name to Meta"</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What you must know from Facebook’s 2021 AR/VR conference."</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"link_url_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://miro.medium.com/max/1200/1*88U0EI-rnnQIuIkTFIC1cQ.png"</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"pinned"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"pinned_in_startup_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"visible_on_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"startup_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:
+<code>json
+{
+    &quot;id&quot;: 39,
+    &quot;account_id&quot;: 1,
+    &quot;account&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;sona&quot;,
+        &quot;tagline&quot;: &quot;Sona Tagline -allendavis2911&quot;
+    },
+    &quot;type&quot;: null,
+    &quot;title&quot;: null,
+    &quot;body&quot;: &quot;link url: test api&quot;,
+    &quot;cached_comment_count&quot;: 0,
+    &quot;views&quot;: 0,
+    &quot;slug&quot;: null,
+    &quot;video_url&quot;: null,
+    &quot;images&quot;: null,
+    &quot;reactions&quot;: [
+        {
+            &quot;name&quot;: &quot;BlackHeartSymbol&quot;,
+            &quot;unicode&quot;: &quot;U+2764&quot;,
+            &quot;html_code&quot;: &quot;&amp;#10084;&quot;,
+            &quot;count&quot;: 0,
+            &quot;reacted&quot;: false
+        },
+        {
+            &quot;name&quot;: &quot;Fire&quot;,
+            &quot;unicode&quot;: &quot;U+1F525&quot;,
+            &quot;html_code&quot;: &quot;&amp;#128293;&quot;,
+            &quot;count&quot;: 0,
+            &quot;reacted&quot;: false
+        },
+        {
+            &quot;name&quot;: &quot;Rocket&quot;,
+            &quot;unicode&quot;: &quot;U+1F680&quot;,
+            &quot;html_code&quot;: &quot;&amp;#128640;&quot;,
+            &quot;count&quot;: 0,
+            &quot;reacted&quot;: false
+        },
+        {
+            &quot;name&quot;: &quot;SlightlySmilingFace&quot;,
+            &quot;unicode&quot;: &quot;U+1F642&quot;,
+            &quot;html_code&quot;: &quot;&amp;#128578;&quot;,
+            &quot;count&quot;: 0,
+            &quot;reacted&quot;: false
+        },
+        {
+            &quot;name&quot;: &quot;ThumbsUpSign&quot;,
+            &quot;unicode&quot;: &quot;U+1F44D&quot;,
+            &quot;html_code&quot;: &quot;&amp;#128077;&quot;,
+            &quot;count&quot;: 0,
+            &quot;reacted&quot;: false
+        }
+    ],
+    &quot;total_reaction_count&quot;: 0,
+    &quot;link_url&quot;: &quot;https://uxdesign.cc/the-real-reason-facebook-is-changing-its-name-to-meta-what-you-must-know-from-facebooks-2021-e8f12cdc797c&quot;,
+    &quot;link_url_site&quot;: &quot;Medium&quot;,
+    &quot;link_url_title&quot;: &quot;The real reason Facebook is changing its name to Meta&quot;,
+    &quot;link_url_description&quot;: &quot;What you must know from Facebook’s 2021 AR/VR conference.&quot;,
+    &quot;link_url_image&quot;: &quot;https://miro.medium.com/max/1200/1*88U0EI-rnnQIuIkTFIC1cQ.png&quot;,
+    &quot;trackable_type&quot;: null,
+    &quot;trackable_id&quot;: null,
+    &quot;pinned&quot;: false,
+    &quot;pinned_in_startup_feed&quot;: false,
+    &quot;visible_on_feed&quot;: true,
+    &quot;redirect_url&quot;: null,
+    &quot;shareable_url&quot;: null,
+    &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Allen Davis&quot;,
+        &quot;headline&quot;: &quot;It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout&quot;,
+        &quot;avatar&quot;: &quot;http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg&quot;
+    },
+    &quot;startup_id&quot;: null,
+    &quot;startup&quot;: null,
+    &quot;created_at&quot;: &quot;2021-11-15T07:02:06.637Z&quot;
+}
+</code></p>
+</blockquote>
+<h3 id='http-request-28'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/posts</code></p>
+<h3 id='http-header-19'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code> -(required)</p>
+<h3 id='data-parameters-14'>DATA Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID of the post</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='get-post-reacted-users'>Get post reacted users</h2>
 <p>this endpoint will get all users who have liked the post.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/posts/1/reacted_users?all=true"</span>
@@ -5143,11 +5322,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='http-request-28'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-29'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/posts/&lt;ID&gt;/reacted_users?all=true</code></p>
-<h3 id='http-header-19'>HTTP Header</h3>
+<h3 id='http-header-20'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='data-parameters-14'>DATA Parameters</h3>
+<h3 id='data-parameters-15'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5196,7 +5375,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='post-react'>Post react</h2>
-<p>this endpoint will allow user to like/unlike the post.</p>
+<p>This endpoint will allow user to like/unlike the post.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/posts/1/react"</span>
 METHOD: POST
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
@@ -5252,9 +5431,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-29'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts/&lt;ID&gt;/react</code></p>
-<h3 id='http-header-20'>HTTP Header</h3>
+<h3 id='http-header-21'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <table><thead>
@@ -5437,11 +5616,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-31'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/posts/&lt;ID&gt;/comments</code></p>
-<h3 id='http-header-21'>HTTP Header</h3>
+<h3 id='http-header-22'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='data-parameters-15'>DATA Parameters</h3>
+<h3 id='data-parameters-16'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5598,11 +5777,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-31'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/comments/&lt;ID&gt;/nested_comments</code></p>
-<h3 id='http-header-22'>HTTP Header</h3>
+<h3 id='http-header-23'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='data-parameters-16'>DATA Parameters</h3>
+<h3 id='data-parameters-17'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5699,11 +5878,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-33'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/comments</code></p>
-<h3 id='http-header-23'>HTTP Header</h3>
+<h3 id='http-header-24'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> - (required)</p>
-<h3 id='data-parameters-17'>DATA Parameters</h3>
+<h3 id='data-parameters-18'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5816,11 +5995,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-33'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-34'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/comments/&lt;ID&gt;</code></p>
-<h3 id='http-header-24'>HTTP Header</h3>
+<h3 id='http-header-25'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code>  - (required)</p>
-<h3 id='data-parameters-18'>DATA Parameters</h3>
+<h3 id='data-parameters-19'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5915,16 +6094,16 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-34'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
 <p><code>DELETE localhost:3000/api/v1/comments/&lt;ID&gt;</code></p>
-<h3 id='http-header-25'>HTTP Header</h3>
-<p><code>Authorization: Bearer access_token</code>  - (required)</p>
 <h3 id='http-header-26'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code>  - (required)</p>
+<h3 id='http-header-27'>HTTP Header</h3>
 <ul>
 <li>If comment has nested comments than the comment doesn&#39;t get deleted, the comment data and the user data becomes null.</li>
 <li>If comment doesn&#39;t have nested comment than the comment gets deleted.</li>
 </ul>
-<h3 id='data-parameters-19'>DATA Parameters</h3>
+<h3 id='data-parameters-20'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5996,11 +6175,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-36'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/comments/&lt;ID&gt;/react</code></p>
-<h3 id='http-header-27'>HTTP Header</h3>
+<h3 id='http-header-28'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='data-parameters-20'>DATA Parameters</h3>
+<h3 id='data-parameters-21'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6111,11 +6290,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-36'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-37'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/comments/&lt;ID&gt;/reacted_users?all=true</code></p>
-<h3 id='http-header-28'>HTTP Header</h3>
+<h3 id='http-header-29'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='data-parameters-21'>DATA Parameters</h3>
+<h3 id='data-parameters-22'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6206,7 +6385,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-37'>HTTP Request</h3>
+<h3 id='http-request-38'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -6255,7 +6434,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-38'>HTTP Request</h3>
+<h3 id='http-request-39'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
@@ -6310,9 +6489,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-39'>HTTP Request</h3>
+<h3 id='http-request-40'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-22'>Data parameters</h3>
+<h3 id='data-parameters-23'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6392,7 +6571,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-40'>HTTP Request</h3>
+<h3 id='http-request-41'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
@@ -6406,7 +6585,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-23'>Data parameters</h3>
+<h3 id='data-parameters-24'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6473,7 +6652,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-41'>HTTP Request</h3>
+<h3 id='http-request-42'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
@@ -6506,7 +6685,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-42'>HTTP Request</h3>
+<h3 id='http-request-43'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
 <h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
