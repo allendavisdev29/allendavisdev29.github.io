@@ -400,6 +400,9 @@
                     <a href="#join-account" class="toc-h2 toc-link" data-title="Join account">Join account</a>
                   </li>
                   <li>
+                    <a href="#leave-account" class="toc-h2 toc-link" data-title="Leave account">Leave account</a>
+                  </li>
+                  <li>
                     <a href="#get-account-feed" class="toc-h2 toc-link" data-title="Get Account Feed">Get Account Feed</a>
                   </li>
                   <li>
@@ -446,6 +449,12 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#nested-comments" class="toc-h2 toc-link" data-title="Nested comments">Nested comments</a>
+                  </li>
+                  <li>
+                    <a href="#create-comment" class="toc-h2 toc-link" data-title="Create Comment">Create Comment</a>
+                  </li>
+                  <li>
+                    <a href="#update-comment" class="toc-h2 toc-link" data-title="Update Comment">Update Comment</a>
                   </li>
                   <li>
                     <a href="#comment-react" class="toc-h2 toc-link" data-title="Comment react">Comment react</a>
@@ -1660,6 +1669,43 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='leave-account'>Leave account</h2>
+<p>current user will leave this account.</p>
+
+<blockquote>
+<p>Url:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/accounts/1/leave_account"</span>
+METHOD: DELETE
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully left the network"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-20'>HTTP Request</h3>
+<p><code>DELETE localhost:3000/api/v1/accounts/&lt;ID&gt;/leave_account</code></p>
+<h3 id='http-header-13'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code> -(required)</p>
+<h3 id='data-parameters-10'>DATA Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID of account</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='get-account-feed'>Get Account Feed</h2>
 <p>This endpoint will get all posts of a particular account.</p>
 
@@ -2452,11 +2498,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-20'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-21'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-13'>HTTP Header</h3>
+<h3 id='http-header-14'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='data-parameters-10'>DATA Parameters</h3>
+<h3 id='data-parameters-11'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2649,11 +2695,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-21'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-22'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-14'>HTTP Header</h3>
+<h3 id='http-header-15'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='data-parameters-11'>DATA Parameters</h3>
+<h3 id='data-parameters-12'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2782,9 +2828,9 @@ HEADER: Authorization: Bearer access_token
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-22'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-23'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/joined_accounts</code></p>
-<h3 id='http-header-15'>HTTP Header</h3>
+<h3 id='http-header-16'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> - (required)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -3272,9 +3318,9 @@ HEADER: Authorization: Bearer access_token
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-23'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-24'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/categorized_accounts</code></p>
-<h3 id='http-header-16'>HTTP Header</h3>
+<h3 id='http-header-17'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -4074,7 +4120,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-24'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-25'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/feed</code></p>
 <h3 id='http-header-required'>HTTP Header (required)</h3>
 <p><code>Authorization: Bearer access_token</code></p>
@@ -4897,7 +4943,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-25'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-26'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/open_feed</code></p>
 <h3 id='post-types-2'>Post Types</h3>
 <table><thead>
@@ -5015,11 +5061,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"startup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-08T12:17:37.670Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-26'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-27'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts/&lt;ID&gt;</code></p>
-<h3 id='http-header-17'>HTTP Header</h3>
+<h3 id='http-header-18'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='data-parameters-12'>DATA Parameters</h3>
+<h3 id='data-parameters-13'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5094,11 +5140,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='http-request-27'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-28'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/posts/&lt;ID&gt;/reacted_users?all=true</code></p>
-<h3 id='http-header-18'>HTTP Header</h3>
+<h3 id='http-header-19'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='data-parameters-13'>DATA Parameters</h3>
+<h3 id='data-parameters-14'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5203,9 +5249,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-28'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-29'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts/&lt;ID&gt;/react</code></p>
-<h3 id='http-header-19'>HTTP Header</h3>
+<h3 id='http-header-20'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <table><thead>
@@ -5388,11 +5434,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-29'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/posts/&lt;ID&gt;/comments</code></p>
-<h3 id='http-header-20'>HTTP Header</h3>
+<h3 id='http-header-21'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='data-parameters-14'>DATA Parameters</h3>
+<h3 id='data-parameters-15'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5549,11 +5595,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-31'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/comments/&lt;ID&gt;/nested_comments</code></p>
-<h3 id='http-header-21'>HTTP Header</h3>
+<h3 id='http-header-22'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='data-parameters-15'>DATA Parameters</h3>
+<h3 id='data-parameters-16'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5565,6 +5611,224 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>ID</td>
 <td>Integer</td>
 <td>ID of the parent comment</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='create-comment'>Create Comment</h2>
+<p>this endpoint will create a comment.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/comments/"</span>
+METHOD: POST
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The request data JSON structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample comment 3"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"startup_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample comment 3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"commentable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Post"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"commentable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"startup_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"children_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-13T08:50:44.048Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlackHeartSymbol"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+2764"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#10084;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F525"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128293;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rocket"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F680"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128640;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SlightlySmilingFace"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F642"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128578;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ThumbsUpSign"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F44D"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128077;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/comments</code></p>
+<h3 id='http-header-23'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code> - (required)</p>
+<h3 id='data-parameters-17'>DATA Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+<th>required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account_id</td>
+<td>Integer</td>
+<td>ID of the network</td>
+<td>required</td>
+</tr>
+<tr>
+<td>post_id</td>
+<td>Integer</td>
+<td>ID of the post</td>
+<td>required</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>Integer</td>
+<td>ID of the parent comment</td>
+<td>required if its a child comment</td>
+</tr>
+<tr>
+<td>startup_id</td>
+<td>Integer</td>
+<td>ID of the startup</td>
+<td>required if its a startup post</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='update-comment'>Update Comment</h2>
+<p>this endpoint will update a comment.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/comments/1"</span>
+METHOD: PATCH
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The request data JSON structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update comment body:  are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allenn Davis"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://unsolved.dev/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBMUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ebf90700d9f286a6c09d905df61e3226b64b2c58/allen-avatar2.png"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update comment body:  are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"commentable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Post"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"commentable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">212</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"startup_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"children_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-12T11:10:17.323Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlackHeartSymbol"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+2764"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#10084;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F525"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128293;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rocket"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F680"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128640;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SlightlySmilingFace"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F642"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128578;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ThumbsUpSign"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F44D"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128077;"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-33'>HTTP Request</h3>
+<p><code>GET localhost:3000/api/v1/comments/&lt;ID&gt;</code></p>
+<h3 id='http-header-24'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code>  - (required)</p>
+<h3 id='data-parameters-18'>DATA Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID of the comment</td>
 </tr>
 </tbody></table>
 
@@ -5625,11 +5889,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-31'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-34'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/comments/&lt;ID&gt;/react</code></p>
-<h3 id='http-header-22'>HTTP Header</h3>
+<h3 id='http-header-25'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='data-parameters-16'>DATA Parameters</h3>
+<h3 id='data-parameters-19'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5740,11 +6004,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/comments/&lt;ID&gt;/reacted_users?all=true</code></p>
-<h3 id='http-header-23'>HTTP Header</h3>
+<h3 id='http-header-26'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='data-parameters-17'>DATA Parameters</h3>
+<h3 id='data-parameters-20'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5835,7 +6099,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-33'>HTTP Request</h3>
+<h3 id='http-request-36'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -5884,7 +6148,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-34'>HTTP Request</h3>
+<h3 id='http-request-37'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
@@ -5939,9 +6203,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-35'>HTTP Request</h3>
+<h3 id='http-request-38'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-18'>Data parameters</h3>
+<h3 id='data-parameters-21'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6021,7 +6285,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-36'>HTTP Request</h3>
+<h3 id='http-request-39'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
@@ -6035,7 +6299,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-19'>Data parameters</h3>
+<h3 id='data-parameters-22'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6102,7 +6366,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-37'>HTTP Request</h3>
+<h3 id='http-request-40'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
@@ -6135,7 +6399,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-38'>HTTP Request</h3>
+<h3 id='http-request-41'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
 <h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
