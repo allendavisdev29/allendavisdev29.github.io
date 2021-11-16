@@ -437,6 +437,9 @@
                     <a href="#create-post" class="toc-h2 toc-link" data-title="Create Post">Create Post</a>
                   </li>
                   <li>
+                    <a href="#update-post" class="toc-h2 toc-link" data-title="Update Post">Update Post</a>
+                  </li>
+                  <li>
                     <a href="#get-post-reacted-users" class="toc-h2 toc-link" data-title="Get post reacted users">Get post reacted users</a>
                   </li>
                   <li>
@@ -532,7 +535,7 @@
 METHOD: POST
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -548,7 +551,7 @@ METHOD: POST
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg3NjEzNTR9.uk_g3M_W8fV-Ov--plaLGUDeI8LDPaT-iwdmJnbX4GE"</span><span class="p">,</span><span class="w">
@@ -625,14 +628,14 @@ METHOD: POST
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"otp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -667,7 +670,7 @@ METHOD: POST
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -689,7 +692,7 @@ HEADER: Authorization: Bearer access_token
 METHOD: POST
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 
@@ -700,7 +703,7 @@ METHOD: POST
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg3NjQ5OTR9.Fy9eDDQCnRVdqk7ylPl_at-Pjo8NLsfYA6Oe_hHYmUo"</span><span class="p">,</span><span class="w">
@@ -749,7 +752,7 @@ METHOD: GET
 HEADER: Authorization: Bearer refresh_token
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Mjg3NjQ5OTR9.Fy9eDDQCnRVdqk7ylPl_at-Pjo8NLsfYA6Oe_hHYmUo"</span><span class="p">,</span><span class="w">
@@ -768,7 +771,7 @@ METHOD: DELETE
 HEADER: Authorization: Bearer refresh_token
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"device_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pqrst"</span><span class="w">
@@ -805,7 +808,7 @@ HEADER: Authorization: Bearer refresh_token
 METHOD: POST
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allendavis2911@gmail.com"</span><span class="w">
@@ -836,7 +839,7 @@ METHOD: POST
 METHOD: POST
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allendavis2911@gmail.com"</span><span class="p">,</span><span class="w">
@@ -874,7 +877,7 @@ METHOD: POST
 METHOD: POST
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allendavis2911@gmail.com"</span><span class="p">,</span><span class="w">
@@ -914,7 +917,7 @@ METHOD: GET
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -967,7 +970,7 @@ METHOD: GET
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1004,7 +1007,7 @@ METHOD: PATCH
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1032,7 +1035,7 @@ HEADER: Authorization: Bearer access_token
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1084,7 +1087,7 @@ HEADER: Authorization: Bearer access_token
 METHOD: PATCH
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1094,7 +1097,7 @@ METHOD: PATCH
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1129,14 +1132,14 @@ METHOD: PATCH
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="err">form</span><span class="w"> </span><span class="err">data</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1181,7 +1184,7 @@ METHOD: GET
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1222,7 +1225,7 @@ METHOD: GET
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1354,7 +1357,7 @@ HEADER: Authorization: Bearer access_token
 METHOD: GET
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1565,7 +1568,7 @@ METHOD: POST
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1584,7 +1587,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
@@ -1649,7 +1652,7 @@ METHOD: POST
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1686,7 +1689,7 @@ METHOD: DELETE
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1723,7 +1726,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"posts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2535,7 +2538,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2728,7 +2731,7 @@ METHOD: GET
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2847,7 +2850,7 @@ METHOD: GET
 HEADER: Authorization: Bearer access_token
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3345,7 +3348,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"posts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4168,7 +4171,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"posts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4989,7 +4992,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
@@ -5119,7 +5122,7 @@ METHOD: POST
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure (link url example):</p>
+<p>The request JSON structure (link url example):</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5142,7 +5145,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The request data JSON structure (video url example):</p>
+<p>The request JSON structure (video url example):</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5165,7 +5168,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The request data JSON structure (images url example):</p>
+<p>The request JSON structure (images url example):</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5188,7 +5191,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
@@ -5270,20 +5273,120 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p><code>POST localhost:3000/api/v1/posts</code></p>
 <h3 id='http-header-19'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> -(required)</p>
-<h3 id='data-parameters-14'>DATA Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>Integer</td>
-<td>ID of the post</td>
-</tr>
-</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='update-post'>Update Post</h2>
+<p>This endpoint will update post in an account.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/posts"</span>
+METHOD: PATCH
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The request JSON structure :</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"link url: test api"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://uxdesign.cc/the-real-reason-facebook-is-changing-its-name-to-meta-what-you-must-know-from-facebooks-2021-e8f12cdc797c"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url_site"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The real reason Facebook is changing its name to Meta"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What you must know from Facebook’s 2021 AR/VR conference."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link_url_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://miro.medium.com/max/1200/1*88U0EI-rnnQIuIkTFIC1cQ.png"</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"pinned"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"pinned_in_startup_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"visible_on_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="nl">"startup_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The response JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sona Tagline -allendavis2911"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"updating body through api 2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cached_comment_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=pfeyxy7wVXg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlackHeartSymbol"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+2764"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#10084;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F525"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128293;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rocket"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F680"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128640;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SlightlySmilingFace"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F642"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128578;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ThumbsUpSign"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unicode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U+1F44D"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"html_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#128077;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reacted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"total_reaction_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"link_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"link_url_site"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"link_url_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"link_url_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"link_url_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trackable_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trackable_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pinned"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pinned_in_startup_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"visible_on_feed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shareable_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"startup_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"startup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-15T07:02:06.637Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-29'>HTTP Request</h3>
+<p><code>PATCH localhost:3000/api/v1/posts</code></p>
+<h3 id='http-header-20'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code> -(required)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='get-post-reacted-users'>Get post reacted users</h2>
@@ -5293,7 +5396,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5320,11 +5423,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='http-request-29'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/posts/&lt;ID&gt;/reacted_users?all=true</code></p>
-<h3 id='http-header-20'>HTTP Header</h3>
+<h3 id='http-header-21'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='data-parameters-15'>DATA Parameters</h3>
+<h3 id='data-parameters-14'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5379,7 +5482,7 @@ METHOD: POST
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"data_reaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlackHeartSymbol"</span><span class="p">,</span><span class="w">
@@ -5388,7 +5491,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5429,9 +5532,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-31'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts/&lt;ID&gt;/react</code></p>
-<h3 id='http-header-21'>HTTP Header</h3>
+<h3 id='http-header-22'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <table><thead>
@@ -5474,7 +5577,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5614,11 +5717,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-31'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/posts/&lt;ID&gt;/comments</code></p>
-<h3 id='http-header-22'>HTTP Header</h3>
+<h3 id='http-header-23'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='data-parameters-16'>DATA Parameters</h3>
+<h3 id='data-parameters-15'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5645,7 +5748,7 @@ METHOD: Get
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5775,11 +5878,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-33'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/comments/&lt;ID&gt;/nested_comments</code></p>
-<h3 id='http-header-23'>HTTP Header</h3>
+<h3 id='http-header-24'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='data-parameters-17'>DATA Parameters</h3>
+<h3 id='data-parameters-16'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5802,7 +5905,7 @@ METHOD: POST
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5815,7 +5918,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5876,11 +5979,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-33'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-34'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/comments</code></p>
-<h3 id='http-header-24'>HTTP Header</h3>
+<h3 id='http-header-25'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> - (required)</p>
-<h3 id='data-parameters-18'>DATA Parameters</h3>
+<h3 id='data-parameters-17'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5923,7 +6026,7 @@ METHOD: PATCH
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5932,7 +6035,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5993,11 +6096,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-34'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/comments/&lt;ID&gt;</code></p>
-<h3 id='http-header-25'>HTTP Header</h3>
+<h3 id='http-header-26'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code>  - (required)</p>
-<h3 id='data-parameters-19'>DATA Parameters</h3>
+<h3 id='data-parameters-18'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6020,7 +6123,7 @@ METHOD: DELETE
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
@@ -6092,16 +6195,16 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-36'>HTTP Request</h3>
 <p><code>DELETE localhost:3000/api/v1/comments/&lt;ID&gt;</code></p>
-<h3 id='http-header-26'>HTTP Header</h3>
-<p><code>Authorization: Bearer access_token</code>  - (required)</p>
 <h3 id='http-header-27'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code>  - (required)</p>
+<h3 id='http-header-28'>HTTP Header</h3>
 <ul>
 <li>If comment has nested comments than the comment doesn&#39;t get deleted, the comment data and the user data becomes null.</li>
 <li>If comment doesn&#39;t have nested comment than the comment gets deleted.</li>
 </ul>
-<h3 id='data-parameters-20'>DATA Parameters</h3>
+<h3 id='data-parameters-19'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6124,7 +6227,7 @@ METHOD: POST
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"data_reaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlackHeartSymbol"</span><span class="w">
@@ -6132,7 +6235,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -6173,11 +6276,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-36'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-37'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/comments/&lt;ID&gt;/react</code></p>
-<h3 id='http-header-28'>HTTP Header</h3>
+<h3 id='http-header-29'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='data-parameters-21'>DATA Parameters</h3>
+<h3 id='data-parameters-20'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6232,7 +6335,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -6288,11 +6391,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-37'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-38'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/comments/&lt;ID&gt;/reacted_users?all=true</code></p>
-<h3 id='http-header-29'>HTTP Header</h3>
+<h3 id='http-header-30'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='data-parameters-22'>DATA Parameters</h3>
+<h3 id='data-parameters-21'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6349,7 +6452,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -6383,7 +6486,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-38'>HTTP Request</h3>
+<h3 id='http-request-39'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -6410,7 +6513,7 @@ METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -6432,7 +6535,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-39'>HTTP Request</h3>
+<h3 id='http-request-40'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
@@ -6453,7 +6556,7 @@ METHOD: POST
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"job"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -6467,7 +6570,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -6487,9 +6590,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-40'>HTTP Request</h3>
+<h3 id='http-request-41'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-23'>Data parameters</h3>
+<h3 id='data-parameters-22'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6537,7 +6640,7 @@ METHOD: PATCH
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The request data JSON structure:</p>
+<p>The request JSON structure:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"job"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -6550,7 +6653,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -6569,7 +6672,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-41'>HTTP Request</h3>
+<h3 id='http-request-42'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
@@ -6583,7 +6686,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-24'>Data parameters</h3>
+<h3 id='data-parameters-23'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6631,7 +6734,7 @@ METHOD: POST
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -6650,7 +6753,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-42'>HTTP Request</h3>
+<h3 id='http-request-43'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
@@ -6671,7 +6774,7 @@ METHOD: DELETE
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -6683,7 +6786,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-43'>HTTP Request</h3>
+<h3 id='http-request-44'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
 <h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
