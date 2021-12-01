@@ -522,6 +522,9 @@
                   <li>
                     <a href="#mark-complete-course-session" class="toc-h2 toc-link" data-title="Mark Complete course session">Mark Complete course session</a>
                   </li>
+                  <li>
+                    <a href="#mark-live-course-session-as-missed" class="toc-h2 toc-link" data-title="Mark live course session as missed">Mark live course session as missed</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -8093,7 +8096,10 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='mark-complete-course-session'>Mark Complete course session</h2>
 <p>This endpoint marks a course session as complete.</p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/courses/7/course_sessions/8/mark_complete"</span>
+METHOD: POST
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
 <blockquote>
 <p>The request JSON structure</p>
 </blockquote>
@@ -8159,6 +8165,77 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='mark-live-course-session-as-missed'>Mark live course session as missed</h2>
+<p>This endpoint marks a live course session as missed.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/courses/7/course_sessions/11/session_missed"</span>
+METHOD: POST
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The request JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The response JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"live_session_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=Hxh6nNHSUjo&amp;list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&amp;index=8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"session_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-02T22:03:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"session_marked_complete_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"session_rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"avg_session_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"course_sessions_rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"missed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-51'>HTTP Request</h3>
+<p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/session_missed</code></p>
+<h3 id='http-header-43'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code> </p>
+<h3 id='url-parameters-9'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>COURSE_ID</td>
+<td>The ID of the course session</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>The ID of the course</td>
+</tr>
+</tbody></table>
+<h3 id='data-parameters-26'>Data Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account_id</td>
+<td>The ID of the account</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -8202,7 +8279,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-51'>HTTP Request</h3>
+<h3 id='http-request-52'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -8251,9 +8328,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-52'>HTTP Request</h3>
+<h3 id='http-request-53'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-9'>URL Parameters</h3>
+<h3 id='url-parameters-10'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8306,9 +8383,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-53'>HTTP Request</h3>
+<h3 id='http-request-54'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-26'>Data parameters</h3>
+<h3 id='data-parameters-27'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8388,9 +8465,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-54'>HTTP Request</h3>
+<h3 id='http-request-55'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-10'>URL Parameters</h3>
+<h3 id='url-parameters-11'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8402,7 +8479,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-27'>Data parameters</h3>
+<h3 id='data-parameters-28'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8469,9 +8546,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-55'>HTTP Request</h3>
+<h3 id='http-request-56'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
-<h3 id='url-parameters-11'>URL Parameters</h3>
+<h3 id='url-parameters-12'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8502,9 +8579,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-56'>HTTP Request</h3>
+<h3 id='http-request-57'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
-<h3 id='url-parameters-12'>URL Parameters</h3>
+<h3 id='url-parameters-13'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
