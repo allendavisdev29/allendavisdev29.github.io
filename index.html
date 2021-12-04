@@ -501,6 +501,12 @@
                     <a href="#get-a-specific-course" class="toc-h2 toc-link" data-title="Get a Specific Course">Get a Specific Course</a>
                   </li>
                   <li>
+                    <a href="#create-a-course" class="toc-h2 toc-link" data-title="Create a Course">Create a Course</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-course" class="toc-h2 toc-link" data-title="Update a Course">Update a Course</a>
+                  </li>
+                  <li>
                     <a href="#get-all-course-sessions" class="toc-h2 toc-link" data-title="Get all Course Sessions">Get all Course Sessions</a>
                   </li>
               </ul>
@@ -7798,6 +7804,513 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='create-a-course'>Create a Course</h2>
+<p>This endpoint creates a course.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/courses"</span>
+METHOD: POST
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The request JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"course"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Course 2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beginner"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"preview_video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=K4TOrB7at0Y"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"course_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discounted_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"duration_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeks"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"course_session_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"live_recorded"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"peer_review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"live_q_and_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"live_projects"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"guest_lectures"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"case_studies"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"templates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"certificate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"instructor_review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"instructor_review_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"one_on_one_consultation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"one_on_one_consultation_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"on_demand"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"all_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"test"</span><span class="p">,</span><span class="w"> </span><span class="s2">"test1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"test2"</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"all_target_group_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"tg1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tg2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tg3"</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"course_faqs_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry."</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"printing and typesetting industry."</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."</span><span class="w">  
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"course_bonus_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text of the printing and typesetting industry. Lorem Ipsum"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2400</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard dummy text ever since the 1500s"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3200</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard dummy text ever since printing and typesetting industry"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1800</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"course_sessions_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=ACChhA4GdfM"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"session_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-22T10:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"live_session_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.jitsi.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 3"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=ACChhA4GdfM"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"commit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"save"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The response JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Course 2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"published_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-04T12:13:52.659+05:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"duration_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeks"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"no_of_seats"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"no_of_enrollments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"remaining_seats"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"avg_course_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discounted_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"preview_video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=K4TOrB7at0Y"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_session_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"live_recorded"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"instructor_review"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"instructor_review_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"one_on_one_consultation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"one_on_one_consultation_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stripe_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prod_KiIZIzvbVGrksf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stripe_price_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price_1K2ryQSDvqsiloWhUrMYTNrb"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen "</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://unsolved-networks-avatars.s3.ap-south-1.amazonaws.com/a/a.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test2"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"target_group_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"tg1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tg2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tg3"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"peer_review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"live_q_and_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"live_projects"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"guest_lectures"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"case_studies"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"templates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"certificate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"course_sessions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=ACChhA4GdfM"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"live_session_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_datetime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_marked_complete_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avg_session_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"live_session_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.jitsi.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-22T10:00:00.000+05:30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_marked_complete_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avg_session_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 3"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=ACChhA4GdfM"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"live_session_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_datetime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_marked_complete_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avg_session_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"course_faqs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"printing and typesetting industry."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"bonus_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">7400</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_bonus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text of the printing and typesetting industry. Lorem Ipsum"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard dummy text ever since the 1500s"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3200</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard dummy text ever since printing and typesetting industry"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1800</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-47'>HTTP Request</h3>
+<p><code>POST http://localhost:3000/courses</code></p>
+<h3 id='http-header-39'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
+<h3 id='data-parameters-25'>DATA Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account_id</td>
+<td>Integer</td>
+<td>ID of the account</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='update-a-course'>Update a Course</h2>
+<p>This endpoint updates a specific course.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/courses/32"</span>
+METHOD: PATCH
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The request JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"course"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Course 2 edited"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beginner"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"preview_video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=K4TOrB7at0Y"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"course_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discounted_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"duration_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeks"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"course_session_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"live_recorded"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"peer_review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"live_q_and_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"live_projects"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"guest_lectures"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"case_studies"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"templates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"certificate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"instructor_review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"instructor_review_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"one_on_one_consultation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"one_on_one_consultation_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"on_demand"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"all_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"test"</span><span class="p">,</span><span class="w"> </span><span class="s2">"test1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"test2"</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"all_target_group_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"tg1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tg2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tg3"</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"course_faqs_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edited Lorem Ipsum is simply dummy text of the printing and typesetting industry."</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edited printing and typesetting industry."</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."</span><span class="w"> </span><span class="p">,</span><span class="w">
+                </span><span class="nl">"_destroy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> 
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added printing and typesetting industry."</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dummy text of the printing"</span><span class="w">  
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"course_bonus_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edited text of the printing and typesetting industry. Lorem Ipsum"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2400</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edited standard dummy text ever since the 1500s"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3200</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edited standard dummy text ever since printing and typesetting industry"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1800</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"_destroy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> 
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added new bonus standard dummy"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"course_sessions_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 1 edited"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=ACChhA4GdfM"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 2 edited"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"session_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-22T10:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"live_session_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.jitsi.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 3 edited"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=ACChhA4GdfM"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"_destroy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> 
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 4 added"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=ACChhA4GdfM"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"commit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"save"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The request JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Course 2 edited"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"published_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-04T12:55:42.503+05:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"duration_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeks"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"no_of_seats"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"no_of_enrollments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"remaining_seats"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"avg_course_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discounted_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"preview_video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=K4TOrB7at0Y"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_session_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"live_recorded"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"instructor_review"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"instructor_review_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"one_on_one_consultation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"one_on_one_consultation_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stripe_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prod_KiIZIzvbVGrksf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stripe_price_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price_1K2ryQSDvqsiloWhUrMYTNrb"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen "</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://unsolved-networks-avatars.s3.ap-south-1.amazonaws.com/a/a.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"test2"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"target_group_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"tg1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tg2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tg3"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"templates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"certificate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"peer_review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"case_studies"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"live_q_and_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"live_projects"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"guest_lectures"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"course_sessions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 1 edited"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=ACChhA4GdfM"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"live_session_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_datetime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_marked_complete_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avg_session_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 2 edited"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"live_session_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.jitsi.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-22T10:00:00.000+05:30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_marked_complete_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avg_session_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session 4 added"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=ACChhA4GdfM"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"live_session_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_datetime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_marked_complete_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"session_rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avg_session_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"course_faqs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edited Lorem Ipsum is simply dummy text of the printing and typesetting industry."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added printing and typesetting industry."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dummy text of the printing"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"bonus_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">5700</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_bonus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edited text of the printing and typesetting industry. Lorem Ipsum"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edited standard dummy text ever since the 1500s"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3200</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added new bonus standard dummy"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-48'>HTTP Request</h3>
+<p><code>PATCH http://localhost:3000/courses/&lt;ID&gt;</code></p>
+<h3 id='http-header-40'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID of the course</td>
+</tr>
+</tbody></table>
+<h3 id='data-parameters-26'>DATA Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account_id</td>
+<td>Integer</td>
+<td>ID of the account</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='get-all-course-sessions'>Get all Course Sessions</h2>
 <p>This endpoint retrieves all course sessions.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/courses/7/course_sessions"</span>
@@ -7958,11 +8471,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-47'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-49'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/&lt;ID&gt;/course_sessions</code></p>
-<h3 id='http-header-39'>HTTP Header</h3>
+<h3 id='http-header-41'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8045,9 +8558,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-28T13:55:42.173Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h3 id='http-request-48'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-50'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/course_categories</code></p>
-<h3 id='http-header-40'>HTTP Header</h3>
+<h3 id='http-header-42'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -8085,11 +8598,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-49'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-51'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;</code></p>
-<h3 id='http-header-41'>HTTP Header</h3>
+<h3 id='http-header-43'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-7'>URL Parameters</h3>
+<h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8144,11 +8657,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-50'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-52'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/mark_complete</code></p>
-<h3 id='http-header-42'>HTTP Header</h3>
+<h3 id='http-header-44'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-8'>URL Parameters</h3>
+<h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8164,7 +8677,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the course</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-25'>Data Parameters</h3>
+<h3 id='data-parameters-27'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8215,11 +8728,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-51'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-53'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/session_missed</code></p>
-<h3 id='http-header-43'>HTTP Header</h3>
+<h3 id='http-header-45'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-9'>URL Parameters</h3>
+<h3 id='url-parameters-10'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8235,7 +8748,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the course</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-26'>Data Parameters</h3>
+<h3 id='data-parameters-28'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8287,11 +8800,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-52'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-54'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/rate</code></p>
-<h3 id='http-header-44'>HTTP Header</h3>
+<h3 id='http-header-46'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-10'>URL Parameters</h3>
+<h3 id='url-parameters-11'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8307,7 +8820,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the course</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-27'>Data Parameters</h3>
+<h3 id='data-parameters-29'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8351,11 +8864,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test review"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-53'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-55'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_reviews</code></p>
-<h3 id='http-header-45'>HTTP Header</h3>
+<h3 id='http-header-47'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-11'>URL Parameters</h3>
+<h3 id='url-parameters-12'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8367,7 +8880,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the course session</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-28'>Data Parameters</h3>
+<h3 id='data-parameters-30'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8404,11 +8917,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test review"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-54'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-56'>HTTP Request</h3>
 <p><code>PATCH http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_reviews/&lt;COURSE_REVIEW_ID&gt;</code></p>
-<h3 id='http-header-46'>HTTP Header</h3>
+<h3 id='http-header-48'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-12'>URL Parameters</h3>
+<h3 id='url-parameters-13'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8469,7 +8982,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-55'>HTTP Request</h3>
+<h3 id='http-request-57'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -8518,9 +9031,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-56'>HTTP Request</h3>
+<h3 id='http-request-58'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-13'>URL Parameters</h3>
+<h3 id='url-parameters-14'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8573,9 +9086,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-57'>HTTP Request</h3>
+<h3 id='http-request-59'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-29'>Data parameters</h3>
+<h3 id='data-parameters-31'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8655,9 +9168,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-58'>HTTP Request</h3>
+<h3 id='http-request-60'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-14'>URL Parameters</h3>
+<h3 id='url-parameters-15'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8669,7 +9182,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-30'>Data parameters</h3>
+<h3 id='data-parameters-32'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8736,9 +9249,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-59'>HTTP Request</h3>
+<h3 id='http-request-61'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
-<h3 id='url-parameters-15'>URL Parameters</h3>
+<h3 id='url-parameters-16'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8769,9 +9282,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-60'>HTTP Request</h3>
+<h3 id='http-request-62'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
-<h3 id='url-parameters-16'>URL Parameters</h3>
+<h3 id='url-parameters-17'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
