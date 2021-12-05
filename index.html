@@ -8026,14 +8026,200 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Value</th>
+<th>required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>account_id</td>
 <td>Integer</td>
+<td>ID</td>
+<td>true</td>
 <td>ID of the account</td>
+</tr>
+<tr>
+<td>commit</td>
+<td>String</td>
+<td>[&quot;save&quot;, draft]</td>
+<td>true</td>
+<td>&#39;save&#39; will update/create &amp; publish the course &amp; &#39;draft&#39; will save update/create &amp; save the course as draft</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>-</td>
+<td>true</td>
+<td>title of the course</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>-</td>
+<td>true</td>
+<td>description of the course</td>
+</tr>
+<tr>
+<td>level</td>
+<td>String</td>
+<td>[&#39;Beginner&#39;, &#39;Intermediate&#39;, &#39;Advanced&#39;]</td>
+<td>optional</td>
+<td>level of the course</td>
+</tr>
+<tr>
+<td>preview_video_url</td>
+<td>String</td>
+<td>-</td>
+<td>optional</td>
+<td>Preview Video - Add a Youtube URL(2 min)</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>[&quot;INR&quot;]</td>
+<td>required</td>
+<td>default will be inr</td>
+</tr>
+<tr>
+<td>course_price</td>
+<td>Float</td>
+<td>-</td>
+<td>optional, * required if discounted price exists</td>
+<td>price of the course</td>
+</tr>
+<tr>
+<td>discounted_price</td>
+<td>Float</td>
+<td>-</td>
+<td>optional</td>
+<td>Discounted price of the course</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Integer</td>
+<td>-</td>
+<td>optional</td>
+<td>duration of the course</td>
+</tr>
+<tr>
+<td>duration_interval</td>
+<td>String</td>
+<td>[&#39;Hours&#39;, &#39;Days&#39;, &#39;Weeks&#39;, &#39;Months&#39;, &#39;Years&#39;]</td>
+<td>optional</td>
+<td>duration of the course, default is &#39;Hours&#39;</td>
+</tr>
+<tr>
+<td>course_session_type</td>
+<td>String</td>
+<td>[&#39;live&#39;, &#39;recorded&#39;, &#39;live_recorded&#39;]</td>
+<td>optional</td>
+<td>Session type of the course</td>
+</tr>
+<tr>
+<td>community</td>
+<td>String</td>
+<td>[&quot;0&quot;,&quot;1&quot;]</td>
+<td>optional</td>
+<td>Methodology of course</td>
+</tr>
+<tr>
+<td>peer_review</td>
+<td>String</td>
+<td>[&quot;0&quot;,&quot;1&quot;]</td>
+<td>optional</td>
+<td>Methodology of course</td>
+</tr>
+<tr>
+<td>live_q_and_a</td>
+<td>String</td>
+<td>[&quot;0&quot;,&quot;1&quot;]</td>
+<td>optional</td>
+<td>Methodology of course</td>
+</tr>
+<tr>
+<td>live_projects</td>
+<td>String</td>
+<td>[&quot;0&quot;,&quot;1&quot;]</td>
+<td>optional</td>
+<td>Methodology of course</td>
+</tr>
+<tr>
+<td>guest_lectures</td>
+<td>String</td>
+<td>[&quot;0&quot;,&quot;1&quot;]</td>
+<td>optional</td>
+<td>Methodology of course</td>
+</tr>
+<tr>
+<td>case_studies</td>
+<td>String</td>
+<td>[&quot;0&quot;,&quot;1&quot;]</td>
+<td>optional</td>
+<td>Methodology of course</td>
+</tr>
+<tr>
+<td>templates</td>
+<td>String</td>
+<td>[&quot;0&quot;,&quot;1&quot;]</td>
+<td>optional</td>
+<td>Methodology of course</td>
+</tr>
+<tr>
+<td>certificate</td>
+<td>String</td>
+<td>[&quot;0&quot;,&quot;1&quot;]</td>
+<td>optional</td>
+<td>Methodology of course</td>
+</tr>
+<tr>
+<td>instructor_review</td>
+<td>String</td>
+<td>-</td>
+<td>optional, * required if instructor_review_price exists</td>
+<td>-</td>
+</tr>
+<tr>
+<td>instructor_review_price</td>
+<td>Float</td>
+<td>-</td>
+<td>optional</td>
+<td>Review Price</td>
+</tr>
+<tr>
+<td>one_on_one_consultation</td>
+<td>String</td>
+<td>-</td>
+<td>optional, * required if instructor_review_price exists</td>
+<td>-</td>
+</tr>
+<tr>
+<td>one_on_one_consultation_price</td>
+<td>Float</td>
+<td>-</td>
+<td>optional</td>
+<td>1-on-1 consultation Price</td>
+</tr>
+<tr>
+<td>on_demand</td>
+<td>Boolean</td>
+<td>-</td>
+<td>optional</td>
+<td>Preview</td>
+</tr>
+<tr>
+<td>all_tags</td>
+<td>Array<String></td>
+<td>-</td>
+<td>optional</td>
+<td>All Categories</td>
+</tr>
+<tr>
+<td>all_target_group_tags</td>
+<td>Array<String></td>
+<td>-</td>
+<td>optional</td>
+<td>Who is this for</td>
 </tr>
 </tbody></table>
 
