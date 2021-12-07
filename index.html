@@ -369,6 +369,9 @@
                     <a href="#update-user" class="toc-h2 toc-link" data-title="Update User">Update User</a>
                   </li>
                   <li>
+                    <a href="#user-accounts" class="toc-h2 toc-link" data-title="User Accounts">User Accounts</a>
+                  </li>
+                  <li>
                     <a href="#reset-user-password" class="toc-h2 toc-link" data-title="Reset User Password">Reset User Password</a>
                   </li>
                   <li>
@@ -1155,6 +1158,191 @@ HEADER: Authorization: Bearer access_token
 </tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='user-accounts'>User Accounts</h2>
+<p>This endpoint retrevies all accounts user is part of.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/users/1/accounts"</span>
+METHOD: GET
+HEADER: Authorization: Bearer access_token
+</code></pre></div>
+<blockquote>
+<p>The response JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test community 2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-23T10:24:47.174+05:30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"acount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_user_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"feed_banner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-23T10:24:47.237+05:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ror"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ror"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ror Tagline -allendavis2911"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-22T11:00:14.769+05:30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"acount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_user_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"feed_banner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-22T11:00:14.817+05:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test community"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-23T10:24:00.558+05:30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"acount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_user_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"feed_banner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-23T10:24:00.594+05:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sona"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sona Tagline -allendavis2911"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-22T11:00:01.614+05:30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"acount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"closed"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_user_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"discoverable"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"feed_banner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-22T11:00:01.698+05:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rockstar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rockstar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"startups_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"users_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-18T13:37:28.886+05:30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"acount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"closed"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prelaunch_user_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchable"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"feed_banner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-18T13:37:28.960+05:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
+<p><code>GET localhost:3000/api/v1/users/&lt;ID&gt;/accounts</code></p>
+<h3 id='http-header-8'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>true</td>
+<td>Integer</td>
+<td>ID of the user</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='reset-user-password'>Reset User Password</h2>
 <p>This endpoint resets user password.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/users/update_password"</span>
@@ -1195,7 +1383,7 @@ METHOD: PATCH
         </span><span class="nl">"behance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.behance.com/allendavis"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/users/update_password</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -1237,9 +1425,9 @@ HEADER: Authorization: Bearer access_token
         </span><span class="nl">"behance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.behance.com/allendavis"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-15'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/users/update_avatar</code></p>
-<h3 id='http-header-8'>HTTP Header</h3>
+<h3 id='http-header-9'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -1266,9 +1454,9 @@ HEADER: Authorization: Bearer access_token
         </span><span class="s2">"category 2"</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-15'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-16'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/categories</code></p>
-<h3 id='http-header-9'>HTTP Header</h3>
+<h3 id='http-header-10'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -1381,7 +1569,7 @@ HEADER: Authorization: Bearer access_token
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-16'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-17'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/</code></p>
 
 <p>or</p>
@@ -1391,9 +1579,9 @@ HEADER: Authorization: Bearer access_token
 <p>or</p>
 
 <p><code>GET localhost:3000/api/v1/accounts/?search=react</code></p>
-<h3 id='http-header-10'>HTTP Header</h3>
+<h3 id='http-header-11'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1611,9 +1799,9 @@ METHOD: GET
         </span><span class="mi">2</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-17'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-18'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1695,9 +1883,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-09-27T07:59:59.857Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-18'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-19'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts</code></p>
-<h3 id='http-header-11'>HTTP Header</h3>
+<h3 id='http-header-12'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-8'>DATA Parameters</h3>
 <table><thead>
@@ -1732,9 +1920,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully joined the network"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-19'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-20'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/accounts/&lt;ID&gt;/join_account</code></p>
-<h3 id='http-header-12'>HTTP Header</h3>
+<h3 id='http-header-13'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-9'>DATA Parameters</h3>
 <table><thead>
@@ -1769,9 +1957,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully left the network"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-20'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-21'>HTTP Request</h3>
 <p><code>DELETE localhost:3000/api/v1/accounts/&lt;ID&gt;/leave_account</code></p>
-<h3 id='http-header-13'>HTTP Header</h3>
+<h3 id='http-header-14'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> -(required)</p>
 <h3 id='data-parameters-10'>DATA Parameters</h3>
 <table><thead>
@@ -2581,9 +2769,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-21'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-22'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-14'>HTTP Header</h3>
+<h3 id='http-header-15'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-11'>DATA Parameters</h3>
 <table><thead>
@@ -2778,9 +2966,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-22'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-23'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/&lt;ID&gt;/feed</code></p>
-<h3 id='http-header-15'>HTTP Header</h3>
+<h3 id='http-header-16'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-12'>DATA Parameters</h3>
 <table><thead>
@@ -2911,9 +3099,9 @@ HEADER: Authorization: Bearer access_token
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-23'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-24'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/joined_accounts</code></p>
-<h3 id='http-header-16'>HTTP Header</h3>
+<h3 id='http-header-17'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> - (required)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -3401,9 +3589,9 @@ HEADER: Authorization: Bearer access_token
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-24'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-25'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/accounts/categorized_accounts</code></p>
-<h3 id='http-header-17'>HTTP Header</h3>
+<h3 id='http-header-18'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -4203,7 +4391,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-25'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-26'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/feed</code></p>
 <h3 id='http-header-required'>HTTP Header (required)</h3>
 <p><code>Authorization: Bearer access_token</code></p>
@@ -5026,7 +5214,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-26'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-27'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/open_feed</code></p>
 <h3 id='post-types-2'>Post Types</h3>
 <table><thead>
@@ -5144,9 +5332,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"startup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-08T12:17:37.670Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-27'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-28'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts/&lt;ID&gt;</code></p>
-<h3 id='http-header-18'>HTTP Header</h3>
+<h3 id='http-header-19'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-13'>DATA Parameters</h3>
 <table><thead>
@@ -5343,9 +5531,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"startup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-15T07:02:06.637Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-28'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-29'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts</code></p>
-<h3 id='http-header-19'>HTTP Header</h3>
+<h3 id='http-header-20'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> -(required)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -5457,9 +5645,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"startup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-15T07:02:06.637Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-29'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/posts</code></p>
-<h3 id='http-header-20'>HTTP Header</h3>
+<h3 id='http-header-21'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> -(required)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -5476,9 +5664,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully destroyed the post"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-31'>HTTP Request</h3>
 <p><code>DELETE localhost:3000/api/v1/posts/&lt;ID&gt;</code></p>
-<h3 id='http-header-21'>HTTP Header</h3>
+<h3 id='http-header-22'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> -(required)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -5578,9 +5766,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"startup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-15T07:02:06.637Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-31'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/posts</code></p>
-<h3 id='http-header-22'>HTTP Header</h3>
+<h3 id='http-header-23'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> -(required)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -5617,9 +5805,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-33'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/posts/&lt;ID&gt;/reacted_users?all=true</code></p>
-<h3 id='http-header-23'>HTTP Header</h3>
+<h3 id='http-header-24'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-14'>DATA Parameters</h3>
 <table><thead>
@@ -5726,9 +5914,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-33'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-34'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/posts/&lt;ID&gt;/react</code></p>
-<h3 id='http-header-24'>HTTP Header</h3>
+<h3 id='http-header-25'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 
 <table><thead>
@@ -5911,9 +6099,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-34'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/posts/&lt;ID&gt;/comments</code></p>
-<h3 id='http-header-25'>HTTP Header</h3>
+<h3 id='http-header-26'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
 <h3 id='data-parameters-15'>DATA Parameters</h3>
 <table><thead>
@@ -6072,9 +6260,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-36'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/comments/&lt;ID&gt;/nested_comments</code></p>
-<h3 id='http-header-26'>HTTP Header</h3>
+<h3 id='http-header-27'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
 <h3 id='data-parameters-16'>DATA Parameters</h3>
 <table><thead>
@@ -6173,9 +6361,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-36'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-37'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/comments</code></p>
-<h3 id='http-header-27'>HTTP Header</h3>
+<h3 id='http-header-28'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> - (required)</p>
 <h3 id='data-parameters-17'>DATA Parameters</h3>
 <table><thead>
@@ -6290,9 +6478,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-37'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-38'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/comments/&lt;ID&gt;</code></p>
-<h3 id='http-header-28'>HTTP Header</h3>
+<h3 id='http-header-29'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code>  - (required)</p>
 <h3 id='data-parameters-18'>DATA Parameters</h3>
 <table><thead>
@@ -6389,11 +6577,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-38'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-39'>HTTP Request</h3>
 <p><code>DELETE localhost:3000/api/v1/comments/&lt;ID&gt;</code></p>
-<h3 id='http-header-29'>HTTP Header</h3>
-<p><code>Authorization: Bearer access_token</code>  - (required)</p>
 <h3 id='http-header-30'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code>  - (required)</p>
+<h3 id='http-header-31'>HTTP Header</h3>
 <ul>
 <li>If comment has nested comments than the comment doesn&#39;t get deleted, the comment data and the user data becomes null.</li>
 <li>If comment doesn&#39;t have nested comment than the comment gets deleted.</li>
@@ -6470,9 +6658,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-39'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-40'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/comments/&lt;ID&gt;/react</code></p>
-<h3 id='http-header-31'>HTTP Header</h3>
+<h3 id='http-header-32'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-20'>DATA Parameters</h3>
 <table><thead>
@@ -6585,9 +6773,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-40'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-41'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/comments/&lt;ID&gt;/reacted_users?all=true</code></p>
-<h3 id='http-header-32'>HTTP Header</h3>
+<h3 id='http-header-33'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
 <h3 id='data-parameters-21'>DATA Parameters</h3>
 <table><thead>
@@ -6848,9 +7036,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-41'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-42'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/discover_courses</code></p>
-<h3 id='http-header-33'>HTTP Header</h3>
+<h3 id='http-header-34'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -7068,9 +7256,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-42'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-43'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/account_courses</code></p>
-<h3 id='http-header-34'>HTTP Header</h3>
+<h3 id='http-header-35'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
 <h3 id='data-parameters-22'>DATA Parameters</h3>
 <table><thead>
@@ -7302,9 +7490,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-43'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-44'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/aggregate_courses</code></p>
-<h3 id='http-header-35'>HTTP Header</h3>
+<h3 id='http-header-36'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -7476,9 +7664,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-44'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-45'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/inprogress_courses</code></p>
-<h3 id='http-header-36'>HTTP Header</h3>
+<h3 id='http-header-37'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
 <h3 id='data-parameters-23'>DATA Parameters</h3>
 <table><thead>
@@ -7555,9 +7743,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-45'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-46'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/joined_courses</code></p>
-<h3 id='http-header-37'>HTTP Header</h3>
+<h3 id='http-header-38'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
 <h3 id='data-parameters-24'>DATA Parameters</h3>
 <table><thead>
@@ -7793,11 +7981,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-46'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-47'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/&lt;ID&gt;</code></p>
-<h3 id='http-header-38'>HTTP Header</h3>
+<h3 id='http-header-39'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8025,9 +8213,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-47'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-48'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses</code></p>
-<h3 id='http-header-39'>HTTP Header</h3>
+<h3 id='http-header-40'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
 <h3 id='data-parameters-25'>DATA Parameters</h3>
 <table><thead>
@@ -8470,11 +8658,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-48'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-49'>HTTP Request</h3>
 <p><code>PATCH http://localhost:3000/courses/&lt;ID&gt;</code></p>
-<h3 id='http-header-40'>HTTP Header</h3>
+<h3 id='http-header-41'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8664,11 +8852,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-49'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-50'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/&lt;ID&gt;/course_sessions</code></p>
-<h3 id='http-header-41'>HTTP Header</h3>
+<h3 id='http-header-42'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-7'>URL Parameters</h3>
+<h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8751,9 +8939,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-28T13:55:42.173Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h3 id='http-request-50'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-51'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/course_categories</code></p>
-<h3 id='http-header-42'>HTTP Header</h3>
+<h3 id='http-header-43'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -8791,11 +8979,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-51'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-52'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;</code></p>
-<h3 id='http-header-43'>HTTP Header</h3>
+<h3 id='http-header-44'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-8'>URL Parameters</h3>
+<h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8850,11 +9038,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-52'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-53'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/mark_complete</code></p>
-<h3 id='http-header-44'>HTTP Header</h3>
+<h3 id='http-header-45'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-9'>URL Parameters</h3>
+<h3 id='url-parameters-10'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8921,11 +9109,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-53'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-54'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/session_missed</code></p>
-<h3 id='http-header-45'>HTTP Header</h3>
+<h3 id='http-header-46'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-10'>URL Parameters</h3>
+<h3 id='url-parameters-11'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8993,11 +9181,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-54'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-55'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/rate</code></p>
-<h3 id='http-header-46'>HTTP Header</h3>
+<h3 id='http-header-47'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-11'>URL Parameters</h3>
+<h3 id='url-parameters-12'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9057,11 +9245,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test review"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-55'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-56'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_reviews</code></p>
-<h3 id='http-header-47'>HTTP Header</h3>
+<h3 id='http-header-48'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-12'>URL Parameters</h3>
+<h3 id='url-parameters-13'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9110,11 +9298,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test review"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-56'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-57'>HTTP Request</h3>
 <p><code>PATCH http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_reviews/&lt;COURSE_REVIEW_ID&gt;</code></p>
-<h3 id='http-header-48'>HTTP Header</h3>
+<h3 id='http-header-49'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-13'>URL Parameters</h3>
+<h3 id='url-parameters-14'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9175,7 +9363,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-57'>HTTP Request</h3>
+<h3 id='http-request-58'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -9224,9 +9412,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-58'>HTTP Request</h3>
+<h3 id='http-request-59'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-14'>URL Parameters</h3>
+<h3 id='url-parameters-15'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9279,7 +9467,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-59'>HTTP Request</h3>
+<h3 id='http-request-60'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='data-parameters-31'>Data parameters</h3>
 <table><thead>
@@ -9361,9 +9549,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-60'>HTTP Request</h3>
+<h3 id='http-request-61'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-15'>URL Parameters</h3>
+<h3 id='url-parameters-16'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9442,9 +9630,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-61'>HTTP Request</h3>
+<h3 id='http-request-62'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
-<h3 id='url-parameters-16'>URL Parameters</h3>
+<h3 id='url-parameters-17'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9475,9 +9663,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-62'>HTTP Request</h3>
+<h3 id='http-request-63'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
-<h3 id='url-parameters-17'>URL Parameters</h3>
+<h3 id='url-parameters-18'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
