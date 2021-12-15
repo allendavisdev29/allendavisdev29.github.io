@@ -504,7 +504,7 @@
                     <a href="#get-all-joined-courses" class="toc-h2 toc-link" data-title="Get all joined courses">Get all joined courses</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-course" class="toc-h2 toc-link" data-title="Get a Specific Course">Get a Specific Course</a>
+                    <a href="#get-a-course" class="toc-h2 toc-link" data-title="Get a  Course">Get a  Course</a>
                   </li>
                   <li>
                     <a href="#create-a-course" class="toc-h2 toc-link" data-title="Create a Course">Create a Course</a>
@@ -1375,13 +1375,15 @@ HEADER: Authorization: Bearer access_token
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oasis Tourism pvt ltd"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever sinc"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"curr_working_here"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Company 2"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever sinc"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4c0845a1e7018c152af214caa512b94e130aa504/Screen%20Shot%202018-07-21%20at%202.18.06%20PM.png"</span><span class="w">
+            </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4c0845a1e7018c152af214caa512b94e130aa504/Screen%20Shot%202018-07-21%20at%202.18.06%20PM.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"curr_working_here"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -7827,7 +7829,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
-<h2 id='get-a-specific-course'>Get a Specific Course</h2>
+<h2 id='get-a-course'>Get a  Course</h2>
 <p>This endpoint retrieves a specific course.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/courses/2"</span>
 METHOD: GET
@@ -8096,7 +8098,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"instructor_review_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
         </span><span class="nl">"one_on_one_consultation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"one_on_one_consultation_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"on_demand"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"on_demand"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-28T10:40"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"no_of_seats"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
         </span><span class="nl">"all_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"test"</span><span class="p">,</span><span class="w"> </span><span class="s2">"test1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"test2"</span><span class="p">],</span><span class="w">
         </span><span class="nl">"all_target_group_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"tg1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tg2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tg3"</span><span class="p">],</span><span class="w">
         </span><span class="nl">"course_faqs_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -8161,8 +8165,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"published_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-04T12:13:52.659+05:30"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nl">"duration_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeks"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"no_of_seats"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"on_demand"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-28T10:40:00.000+05:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"no_of_seats"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
     </span><span class="nl">"no_of_enrollments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"remaining_seats"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"avg_course_rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
