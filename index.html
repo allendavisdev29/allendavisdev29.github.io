@@ -583,13 +583,16 @@
             <a href="#chat-groups" class="toc-h1 toc-link" data-title="Chat Groups">Chat Groups</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-course-channel" class="toc-h2 toc-link" data-title="Get course channel">Get course channel</a>
+                    <a href="#get-course-chat-group" class="toc-h2 toc-link" data-title="Get course chat group">Get course chat group</a>
                   </li>
                   <li>
                     <a href="#get-specific-channel" class="toc-h2 toc-link" data-title="Get specific channel">Get specific channel</a>
                   </li>
                   <li>
                     <a href="#get-channel-members" class="toc-h2 toc-link" data-title="Get channel members">Get channel members</a>
+                  </li>
+                  <li>
+                    <a href="#create-channel" class="toc-h2 toc-link" data-title="Create channel">Create channel</a>
                   </li>
               </ul>
           </li>
@@ -9103,7 +9106,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
-<h1 id='chat-groups'>Chat Groups</h1><h2 id='get-course-channel'>Get course channel</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/courses/7/chat_groups?account_id=1"</span>
+<h1 id='chat-groups'>Chat Groups</h1><h2 id='get-course-chat-group'>Get course chat group</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/chat_groups/course_chat_group?account_id=1&amp;course_id=7"</span>
 METHOD: GET
 HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </code></pre></div>
@@ -9142,7 +9145,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-66'>HTTP Request</h3>
-<p><code>GET localhost:3000/api/v1/courses/&lt;ID&gt;/chat_groups?account_id=&lt;ACCOUNT_ID&gt;</code></p>
+<p><code>GET localhost:3000/api/v1/chat_groups/course_chat_group?account_id=&lt;ACCOUNT_ID&gt;&amp;course_id=&lt;COURSE_ID&gt;</code></p>
 <h3 id='http-header-58'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
 <h3 id='url-parameters-23'>URL Parameters</h3>
@@ -9153,7 +9156,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>COURSE_ID</td>
 <td>The ID of the course</td>
 </tr>
 <tr>
@@ -9428,6 +9431,62 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='create-channel'>Create channel</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/chat_groups"</span>
+METHOD: POST
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The request JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test group"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"group to test api"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"private_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The response JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1059</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test group nobal 2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"private_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"direct_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_channel"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_session_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-05T12:02:13.443+05:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-05T12:02:13.443+05:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Davis"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allen Davis"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8ee568ad381d401215f7e8ecd59ae1f49f62e0/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"joined"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"channel_user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2022</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"channel_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1059</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_read_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-05T12:02:13.511+05:30"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-69'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/chat_groups</code></p>
+<h3 id='http-header-61'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code> </p>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
@@ -9471,7 +9530,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-69'>HTTP Request</h3>
+<h3 id='http-request-70'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -9520,7 +9579,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-70'>HTTP Request</h3>
+<h3 id='http-request-71'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-26'>URL Parameters</h3>
 <table><thead>
@@ -9575,7 +9634,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-71'>HTTP Request</h3>
+<h3 id='http-request-72'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='data-parameters-33'>Data parameters</h3>
 <table><thead>
@@ -9657,7 +9716,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-72'>HTTP Request</h3>
+<h3 id='http-request-73'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-27'>URL Parameters</h3>
 <table><thead>
@@ -9738,7 +9797,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-73'>HTTP Request</h3>
+<h3 id='http-request-74'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
 <h3 id='url-parameters-28'>URL Parameters</h3>
 <table><thead>
@@ -9771,7 +9830,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-74'>HTTP Request</h3>
+<h3 id='http-request-75'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
 <h3 id='url-parameters-29'>URL Parameters</h3>
 <table><thead>
