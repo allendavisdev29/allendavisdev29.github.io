@@ -569,6 +569,9 @@
             <a href="#startups" class="toc-h1 toc-link" data-title="Startups">Startups</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#get-a-startup" class="toc-h2 toc-link" data-title="Get a startup">Get a startup</a>
+                  </li>
+                  <li>
                     <a href="#create-a-startup" class="toc-h2 toc-link" data-title="Create a startup">Create a startup</a>
                   </li>
                   <li>
@@ -8984,7 +8987,51 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
-<h1 id='startups'>Startups</h1><h2 id='create-a-startup'>Create a startup</h2>
+<h1 id='startups'>Startups</h1><h2 id='get-a-startup'>Get a startup</h2>
+<p>This endpoint gets a startup.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/startups/12"</span>
+METHOD: GET
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div>
+<blockquote>
+<p>The response JSON structure</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test company update"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"detail_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The standard Lorem Ipsum passage, used since the 1500s</span><span class="se">\r\n\"</span><span class="s2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><span class="se">\"\r\n\r\n</span><span class="s2">Section 1.10.32 of </span><span class="se">\"</span><span class="s2">de Finibus Bonorum et Malorum</span><span class="se">\"</span><span class="s2">, written by Cicero in 45 BC</span><span class="se">\r\n\"</span><span class="s2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</span><span class="se">\"\r\n\r\n</span><span class="s2">1914 translation by H. Rackham</span><span class="se">\r\n\"</span><span class="s2">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desir"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=EArBn1Et0aE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"website_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.example.com/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://unsolved.dev/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWUE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8c5f5f359f22e5740ba22527af33e512bfcb58d3/fa37406baf548586972b74f8954ff06b.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"all_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"example"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-04T02:03:45.116+05:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-06T15:40:27.600+05:30"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-63'>HTTP Request</h3>
+<p><code>POST localhost:3000/api/v1/startups/&lt;STARTUP_ID&gt;</code></p>
+<h3 id='http-header-55'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code> </p>
+<h3 id='url-parameters-21'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>STARTUP_ID</td>
+<td>The ID of the startup</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='create-a-startup'>Create a startup</h2>
 <p>This endpoint creates a startup.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL: <span class="s2">"localhost:3000/api/v1/startups"</span>
 METHOD: POST
@@ -9021,9 +9068,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-08T17:50:20.336+05:30"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"curr_working_here"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-63'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-64'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/startups</code></p>
-<h3 id='http-header-55'>HTTP Header</h3>
+<h3 id='http-header-56'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -9064,11 +9111,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-08T17:50:20.336+05:30"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"curr_working_here"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-64'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-65'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/startups/&lt;ID&gt;</code></p>
-<h3 id='http-header-56'>HTTP Header</h3>
+<h3 id='http-header-57'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-21'>URL Parameters</h3>
+<h3 id='url-parameters-22'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9095,11 +9142,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully destroyed the startup"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-65'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-66'>HTTP Request</h3>
 <p><code>DELETE localhost:3000/api/v1/startups/&lt;ID&gt;</code></p>
-<h3 id='http-header-57'>HTTP Header</h3>
+<h3 id='http-header-58'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-22'>URL Parameters</h3>
+<h3 id='url-parameters-23'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9155,11 +9202,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-66'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-67'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/chat_groups/course_chat_group?account_id=&lt;ACCOUNT_ID&gt;&amp;course_id=&lt;COURSE_ID&gt;</code></p>
-<h3 id='http-header-58'>HTTP Header</h3>
+<h3 id='http-header-59'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-23'>URL Parameters</h3>
+<h3 id='url-parameters-24'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9215,11 +9262,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-67'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-68'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/chat_groups/&lt;ID&gt;</code></p>
-<h3 id='http-header-59'>HTTP Header</h3>
+<h3 id='http-header-60'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-24'>URL Parameters</h3>
+<h3 id='url-parameters-25'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9424,11 +9471,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-68'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-69'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/chat_groups/&lt;ID&gt;/users</code></p>
-<h3 id='http-header-60'>HTTP Header</h3>
+<h3 id='http-header-61'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-25'>URL Parameters</h3>
+<h3 id='url-parameters-26'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9492,9 +9539,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-69'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-70'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/chat_groups</code></p>
-<h3 id='http-header-61'>HTTP Header</h3>
+<h3 id='http-header-62'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -9793,11 +9840,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-70'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-71'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/chat_groups/account_chat_groups?account_id=&lt;ACCOUNT_ID&gt;</code></p>
-<h3 id='http-header-62'>HTTP Header</h3>
+<h3 id='http-header-63'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-26'>URL Parameters</h3>
+<h3 id='url-parameters-27'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10053,11 +10100,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-71'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-72'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/direct_messages?account_id=&lt;ACCOUNT_ID&gt;</code></p>
-<h3 id='http-header-63'>HTTP Header</h3>
+<h3 id='http-header-64'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-27'>URL Parameters</h3>
+<h3 id='url-parameters-28'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10114,7 +10161,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-72'>HTTP Request</h3>
+<h3 id='http-request-73'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -10163,9 +10210,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-73'>HTTP Request</h3>
+<h3 id='http-request-74'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-28'>URL Parameters</h3>
+<h3 id='url-parameters-29'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10218,7 +10265,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-74'>HTTP Request</h3>
+<h3 id='http-request-75'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='data-parameters-33'>Data parameters</h3>
 <table><thead>
@@ -10300,9 +10347,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-75'>HTTP Request</h3>
+<h3 id='http-request-76'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-29'>URL Parameters</h3>
+<h3 id='url-parameters-30'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10381,9 +10428,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-76'>HTTP Request</h3>
+<h3 id='http-request-77'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
-<h3 id='url-parameters-30'>URL Parameters</h3>
+<h3 id='url-parameters-31'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10414,9 +10461,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-77'>HTTP Request</h3>
+<h3 id='http-request-78'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
-<h3 id='url-parameters-31'>URL Parameters</h3>
+<h3 id='url-parameters-32'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
