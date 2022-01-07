@@ -522,6 +522,9 @@
                     <a href="#update-a-course" class="toc-h2 toc-link" data-title="Update a Course">Update a Course</a>
                   </li>
                   <li>
+                    <a href="#delete-a-course" class="toc-h2 toc-link" data-title="Delete a Course">Delete a Course</a>
+                  </li>
+                  <li>
                     <a href="#duplicate-a-course" class="toc-h2 toc-link" data-title="Duplicate a Course">Duplicate a Course</a>
                   </li>
                   <li>
@@ -8162,6 +8165,49 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </tbody></table>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+<h2 id='delete-a-course'>Delete a Course</h2>
+<p>This endpoint deletes a specific course.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/courses/28?account_id=1"</span>
+METHOD: DELETE
+HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Course was successfully deleted"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-54'>HTTP Request</h3>
+<p><code>DELETE http://localhost:3000/courses/&lt;ID&gt;?account_id=1</code></p>
+<h3 id='http-header-46'>HTTP Header</h3>
+<p><code>Authorization: Bearer access_token</code></p>
+<h3 id='url-parameters-10'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID of the course</td>
+</tr>
+</tbody></table>
+<h3 id='data-parameters-29'>DATA Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account_id</td>
+<td>Integer</td>
+<td>ID of the accoun</td>
+</tr>
+</tbody></table>
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
 <h2 id='duplicate-a-course'>Duplicate a Course</h2>
 <p>This endpoint duplicates a specific course.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>URL:  <span class="s2">"http://localhost:3000/api/courses/28/duplicate"</span>
@@ -8176,7 +8222,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>The request JSON structure</p>
+<p>The response JSON structure</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
@@ -8233,11 +8279,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"user_reviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nl">"current_user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-54'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-55'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;ID&gt;/duplicate</code></p>
-<h3 id='http-header-46'>HTTP Header</h3>
+<h3 id='http-header-47'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='url-parameters-10'>URL Parameters</h3>
+<h3 id='url-parameters-11'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8251,7 +8297,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>ID of the course</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-29'>DATA Parameters</h3>
+<h3 id='data-parameters-30'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8335,11 +8381,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"share_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Share this course"</span><span class="p">,</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-55'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-56'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;ID&gt;/join_course</code></p>
-<h3 id='http-header-47'>HTTP Header</h3>
+<h3 id='http-header-48'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code></p>
-<h3 id='url-parameters-11'>URL Parameters</h3>
+<h3 id='url-parameters-12'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8353,7 +8399,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>ID of the course</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-30'>DATA Parameters</h3>
+<h3 id='data-parameters-31'>DATA Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8529,11 +8575,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-56'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-57'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/&lt;ID&gt;/course_sessions</code></p>
-<h3 id='http-header-48'>HTTP Header</h3>
+<h3 id='http-header-49'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-12'>URL Parameters</h3>
+<h3 id='url-parameters-13'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8560,11 +8606,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This course is awsome"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-57'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-58'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/&lt;ID&gt;/course_review?account_id=1</code></p>
-<h3 id='http-header-49'>HTTP Header</h3>
+<h3 id='http-header-50'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-13'>URL Parameters</h3>
+<h3 id='url-parameters-14'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8665,15 +8711,15 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-58'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-59'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/course_categories</code></p>
 
 <p>or</p>
 
 <p><code>GET http://localhost:3000/courses/course_categories?account_id=3</code></p>
-<h3 id='http-header-50'>HTTP Header</h3>
+<h3 id='http-header-51'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> (optional- for pre-login)</p>
-<h3 id='url-parameters-14'>URL Parameters</h3>
+<h3 id='url-parameters-15'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8721,11 +8767,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-59'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-60'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;</code></p>
-<h3 id='http-header-51'>HTTP Header</h3>
+<h3 id='http-header-52'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-15'>URL Parameters</h3>
+<h3 id='url-parameters-16'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8780,11 +8826,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-60'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-61'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/mark_complete</code></p>
-<h3 id='http-header-52'>HTTP Header</h3>
+<h3 id='http-header-53'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-16'>URL Parameters</h3>
+<h3 id='url-parameters-17'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8800,7 +8846,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the course</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-31'>Data Parameters</h3>
+<h3 id='data-parameters-32'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8851,11 +8897,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-61'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-62'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/session_missed</code></p>
-<h3 id='http-header-53'>HTTP Header</h3>
+<h3 id='http-header-54'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-17'>URL Parameters</h3>
+<h3 id='url-parameters-18'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8871,7 +8917,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the course</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-32'>Data Parameters</h3>
+<h3 id='data-parameters-33'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8923,11 +8969,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-62'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-63'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_sessions/&lt;ID&gt;/rate</code></p>
-<h3 id='http-header-54'>HTTP Header</h3>
+<h3 id='http-header-55'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-18'>URL Parameters</h3>
+<h3 id='url-parameters-19'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8943,7 +8989,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the course</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-33'>Data Parameters</h3>
+<h3 id='data-parameters-34'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8987,11 +9033,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test review"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-63'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-64'>HTTP Request</h3>
 <p><code>POST http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_reviews</code></p>
-<h3 id='http-header-55'>HTTP Header</h3>
+<h3 id='http-header-56'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-19'>URL Parameters</h3>
+<h3 id='url-parameters-20'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9003,7 +9049,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the course session</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-34'>Data Parameters</h3>
+<h3 id='data-parameters-35'>Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9040,11 +9086,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test review"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-64'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-65'>HTTP Request</h3>
 <p><code>PATCH http://localhost:3000/courses/&lt;COURSE_ID&gt;/course_reviews/&lt;COURSE_REVIEW_ID&gt;</code></p>
-<h3 id='http-header-56'>HTTP Header</h3>
+<h3 id='http-header-57'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-20'>URL Parameters</h3>
+<h3 id='url-parameters-21'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9092,11 +9138,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-04T02:03:45.116+05:30"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-06T15:40:27.600+05:30"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-65'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-66'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/startups/&lt;STARTUP_ID&gt;</code></p>
-<h3 id='http-header-57'>HTTP Header</h3>
+<h3 id='http-header-58'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-21'>URL Parameters</h3>
+<h3 id='url-parameters-22'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9147,9 +9193,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-08T17:50:20.336+05:30"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"curr_working_here"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-66'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-67'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/startups</code></p>
-<h3 id='http-header-58'>HTTP Header</h3>
+<h3 id='http-header-59'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -9190,11 +9236,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-08T17:50:20.336+05:30"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"curr_working_here"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-67'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-68'>HTTP Request</h3>
 <p><code>PATCH localhost:3000/api/v1/startups/&lt;ID&gt;</code></p>
-<h3 id='http-header-59'>HTTP Header</h3>
+<h3 id='http-header-60'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-22'>URL Parameters</h3>
+<h3 id='url-parameters-23'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9221,11 +9267,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully destroyed the startup"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-68'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-69'>HTTP Request</h3>
 <p><code>DELETE localhost:3000/api/v1/startups/&lt;ID&gt;</code></p>
-<h3 id='http-header-60'>HTTP Header</h3>
+<h3 id='http-header-61'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-23'>URL Parameters</h3>
+<h3 id='url-parameters-24'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9281,11 +9327,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-69'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-70'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/chat_groups/course_chat_group?account_id=&lt;ACCOUNT_ID&gt;&amp;course_id=&lt;COURSE_ID&gt;</code></p>
-<h3 id='http-header-61'>HTTP Header</h3>
+<h3 id='http-header-62'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-24'>URL Parameters</h3>
+<h3 id='url-parameters-25'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9341,11 +9387,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-70'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-71'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/chat_groups/&lt;ID&gt;</code></p>
-<h3 id='http-header-62'>HTTP Header</h3>
+<h3 id='http-header-63'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-25'>URL Parameters</h3>
+<h3 id='url-parameters-26'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9550,11 +9596,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-71'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-72'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/chat_groups/&lt;ID&gt;/users</code></p>
-<h3 id='http-header-63'>HTTP Header</h3>
+<h3 id='http-header-64'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-26'>URL Parameters</h3>
+<h3 id='url-parameters-27'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9618,9 +9664,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-72'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-73'>HTTP Request</h3>
 <p><code>POST localhost:3000/api/v1/chat_groups</code></p>
-<h3 id='http-header-64'>HTTP Header</h3>
+<h3 id='http-header-65'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
 
 <!-- ------------------------------------------------------------------------------------------------------------------- -->
@@ -9919,11 +9965,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-73'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-74'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/chat_groups/account_chat_groups?account_id=&lt;ACCOUNT_ID&gt;</code></p>
-<h3 id='http-header-65'>HTTP Header</h3>
+<h3 id='http-header-66'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-27'>URL Parameters</h3>
+<h3 id='url-parameters-28'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10179,11 +10225,11 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
         </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-74'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-75'>HTTP Request</h3>
 <p><code>GET localhost:3000/api/v1/direct_messages?account_id=&lt;ACCOUNT_ID&gt;</code></p>
-<h3 id='http-header-66'>HTTP Header</h3>
+<h3 id='http-header-67'>HTTP Header</h3>
 <p><code>Authorization: Bearer access_token</code> </p>
-<h3 id='url-parameters-28'>URL Parameters</h3>
+<h3 id='url-parameters-29'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10240,7 +10286,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all jobs.</p>
-<h3 id='http-request-75'>HTTP Request</h3>
+<h3 id='http-request-76'>HTTP Request</h3>
 <p><code>GET https://localhost:3000/api/v1/jobs</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -10289,9 +10335,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <p>This endpoint retrieves a specific job.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-76'>HTTP Request</h3>
+<h3 id='http-request-77'>HTTP Request</h3>
 <p><code>GET http://localhost:3000/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-29'>URL Parameters</h3>
+<h3 id='url-parameters-30'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10344,9 +10390,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a specific job.</p>
-<h3 id='http-request-77'>HTTP Request</h3>
+<h3 id='http-request-78'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs</code></p>
-<h3 id='data-parameters-35'>Data parameters</h3>
+<h3 id='data-parameters-36'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10426,9 +10472,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific job.</p>
-<h3 id='http-request-78'>HTTP Request</h3>
+<h3 id='http-request-79'>HTTP Request</h3>
 <p><code>PATCH https://localhost:3000/api/v1/jobs/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-30'>URL Parameters</h3>
+<h3 id='url-parameters-31'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10440,7 +10486,7 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <td>The ID of the job</td>
 </tr>
 </tbody></table>
-<h3 id='data-parameters-36'>Data parameters</h3>
+<h3 id='data-parameters-37'>Data parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10507,9 +10553,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint adds global job to current network.</p>
-<h3 id='http-request-79'>HTTP Request</h3>
+<h3 id='http-request-80'>HTTP Request</h3>
 <p><code>POST https://localhost:3000/api/v1/jobs/&lt;ID&gt;/add_to_network</code></p>
-<h3 id='url-parameters-31'>URL Parameters</h3>
+<h3 id='url-parameters-32'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10540,9 +10586,9 @@ HEADER: <span class="s2">"Authorization: Bearer access_token"</span>
 <li>If global job, then job is removed from all networks and deleted from db</li>
 <li>If private job, then its deleted from db</li>
 </ul>
-<h3 id='http-request-80'>HTTP Request</h3>
+<h3 id='http-request-81'>HTTP Request</h3>
 <p><code>DELETE https://localhost:3000/api/v1/jobs/&lt;ID&gt;/remove_from_network</code></p>
-<h3 id='url-parameters-32'>URL Parameters</h3>
+<h3 id='url-parameters-33'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
